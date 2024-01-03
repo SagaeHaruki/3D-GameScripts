@@ -18,4 +18,8 @@
 - Achievements (10/10 achievements for now)
 
 <h1>Current Changes</h1>
-- IKSytem Connected to the main Script
+
+- Cleaner Code
+- Clean Animation (Transitions)
+- Better Keybinds
+- Better Ground Detection
