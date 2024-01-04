@@ -17,9 +17,9 @@
 - Minimap Script
 - Enemy Attack & Player Detection Script
 
-<h1>Current Changes</h1>
+<h1>Current Changes: [January 04, 2024]</h1>
 
-- Cleaner Code
-- Clean Animation (Transitions)
-- Better Keybinds
-- Better Ground Detection
+> What's New:
+
+- Falling State Script Added (Includes animation)
+
