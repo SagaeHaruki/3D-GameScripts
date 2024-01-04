@@ -25,3 +25,6 @@
 - Animations Script (Added the animation booleans)
 - Change State Script (Added The Falling and Jumping State)
 - Grounded State Script (Used Raycast to Detect the ground, instead of the ".isGrounded" in character controler component)
+- Jumping State Script (Jump cooldown and Jump animation, in addition to this i used the animation to move the player forward instead of manually adding a forward motion to the script)
+- Movement Change Script (Sprinting State will not be removed when jumping)
+- Movement Script (Added some booleans and variables for clean code)
