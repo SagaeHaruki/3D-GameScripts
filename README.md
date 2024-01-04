@@ -9,13 +9,13 @@
 
 <h1>Future plans:</h1>
 
-- Attacking System
-- Improved Animation System
-- Code Cleanup
-- Sounds based on the terrain
-- Day/Night Cycle
-- NPC Movement & Interaction
-- Achievements (10/10 achievements for now)
+- Attacking Script
+- NPC Interaction Script
+- Inventory System Script (Prolly max of 9 or 10 Slots)
+- Menu / Pause Game Script
+- Loading Screen Script
+- Minimap Script
+- Enemy Attack & Player Detection Script
 
 <h1>Current Changes</h1>
 
