@@ -32,6 +32,7 @@ public class AnimationChange : MonoBehaviour
                     playerMovement.animator.SetBool("isWalking", true);
                     playerMovement.animator.SetBool("isRunning", false);
                     playerMovement.animator.SetBool("isSprinting", false);
+                    playerMovement.animator.SetBool("isFalling", false);
                 }
 
                 if (playerMovement.isRunning)
@@ -39,6 +40,7 @@ public class AnimationChange : MonoBehaviour
                     playerMovement.animator.SetBool("isWalking", false);
                     playerMovement.animator.SetBool("isRunning", true);
                     playerMovement.animator.SetBool("isSprinting", false);
+                    playerMovement.animator.SetBool("isFalling", false);
                 }
 
                 if (playerMovement.isSprinting)
@@ -46,7 +48,25 @@ public class AnimationChange : MonoBehaviour
                     playerMovement.animator.SetBool("isWalking", false);
                     playerMovement.animator.SetBool("isRunning", false);
                     playerMovement.animator.SetBool("isSprinting", true);
+                    playerMovement.animator.SetBool("isFalling", false);
                 }
+
+                #region Jump Section
+                if (playerMovement.isJumping)
+                {
+                    playerMovement.animator.SetBool("isWalking", false);
+                    playerMovement.animator.SetBool("isRunning", false);
+                    playerMovement.animator.SetBool("isSprinting", false);
+                    playerMovement.animator.SetBool("isJumping", true);
+                    playerMovement.animator.SetBool("isFalling", false);
+                }
+
+                if (!playerMovement.isJumping)
+                {
+                    playerMovement.animator.SetBool("isJumping", false);
+                    playerMovement.animator.SetBool("isFalling", false);
+                }
+                #endregion
             }
 
             if (!playerMovement.isMoving)
@@ -54,7 +74,18 @@ public class AnimationChange : MonoBehaviour
                 playerMovement.animator.SetBool("isWalking", false);
                 playerMovement.animator.SetBool("isRunning", false);
                 playerMovement.animator.SetBool("isSprinting", false);
+                playerMovement.animator.SetBool("isJumping", false);
+                playerMovement.animator.SetBool("isFalling", false);
             }
+        }
+
+        if (playerMovement.isFalling)
+        {
+            playerMovement.animator.SetBool("isWalking", false);
+            playerMovement.animator.SetBool("isRunning", false);
+            playerMovement.animator.SetBool("isSprinting", false);
+            playerMovement.animator.SetBool("isJumping", false);
+            playerMovement.animator.SetBool("isFalling", true);
         }
     }
 }

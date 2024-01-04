@@ -9,6 +9,7 @@ using UnityEngine;
 [RequireComponent(typeof(ChangeState))]
 [RequireComponent(typeof(AnimationChange))]
 [RequireComponent(typeof(IKSystem))]
+[RequireComponent(typeof(FallingState))]
 public class Movement : MonoBehaviour
 {
     #region Camera Fields
@@ -33,7 +34,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector3 Velocity; // Might be used for some things
 
     // Jump Movement
-    [SerializeField] public float jumpForce = 4.2f;
+    [SerializeField] public float jumpForce = 7.2f;
     [SerializeField] public float jumpForwardForce = 2.3f;
 
     // Player Ground detection

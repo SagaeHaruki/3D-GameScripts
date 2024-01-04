@@ -25,7 +25,7 @@ public class MovementChange : MonoBehaviour
 
     private void SprintingKey()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !playerMovement.isJumping)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             playerMovement.isSprinting = true;
         }
@@ -41,8 +41,8 @@ public class MovementChange : MonoBehaviour
         {
             if (playerMovement.isRunning)
             {
-                playerMovement.isWalking = true;
                 playerMovement.isRunning = false;
+                playerMovement.isWalking = true;
             }
             else
             {

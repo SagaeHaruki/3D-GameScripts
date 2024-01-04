@@ -6,9 +6,15 @@ public class JumpingState : MonoBehaviour
 {
     Movement playerMovement;
 
+    [SerializeField] private float jumpCooldown = 1.5f;
+    [SerializeField] private float lastJumpTime;
+    [SerializeField] private bool canJump = true;
+
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
+
+        lastJumpTime = -jumpCooldown;
     }
 
     private void Update()
@@ -19,22 +25,46 @@ public class JumpingState : MonoBehaviour
         }
 
         NormalJumping();
+        JumpCooldown();
     }
 
     private void NormalJumping()
     {
-        if (playerMovement.isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (playerMovement.isGrounded)
             {
-                playerMovement.animator.SetBool("isJumping", true);
-                playerMovement.isJumping = true;
+                if (playerMovement.isMoving)
+                {
+                    if (playerMovement.isRunning || playerMovement.isSprinting)
+                    {
+                        playerMovement.isJumping = true;
+                        playerMovement.Velocity.y = playerMovement.jumpForce;
+                    }
+                }
+
+                if (!playerMovement.isMoving)
+                {
+                    playerMovement.isJumping = true;
+                    playerMovement.Velocity.y = playerMovement.jumpForce;
+                }
+
+                lastJumpTime = Time.time;
+                canJump = false;
             }
         }
-        else
+        else if (playerMovement.charControl.isGrounded)
         {
             playerMovement.isJumping = false;
-            playerMovement.animator.SetBool("isJumping", false);
+        }
+    }
+
+    private void JumpCooldown()
+    {
+        if (!canJump && Time.time - lastJumpTime > jumpCooldown)
+        {
+            canJump = true;
+            lastJumpTime = 0f;
         }
     }
 }

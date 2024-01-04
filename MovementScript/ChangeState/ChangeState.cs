@@ -21,7 +21,7 @@ public class ChangeState : MonoBehaviour
         ChangePlayerState();
     }
 
-    public void ChangePlayerState()
+    private void ChangePlayerState()
     {
         if (!playerMovement.isFalling)
         {
@@ -41,12 +41,22 @@ public class ChangeState : MonoBehaviour
                 {
                     playerMovement.playerState = "Sprinting";
                 }
+
+                if (playerMovement.isJumping)
+                {
+                    playerMovement.playerState = "Jumping";
+                }
             }
 
             if (!playerMovement.isMoving)
             {
                 playerMovement.playerState = "Idle";
             }
+        }
+
+        if (playerMovement.isFalling)
+        {
+            playerMovement.playerState = "Falling";
         }
     }
 }
