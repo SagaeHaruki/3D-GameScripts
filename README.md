@@ -24,3 +24,4 @@
 - Falling State Script Added (Includes animation)
 - Animations Script (Added the animation booleans)
 - Change State Script (Added The Falling and Jumping State)
+- Grounded State Script (Used Raycast to Detect the ground, instead of the ".isGrounded" in character controler component)
