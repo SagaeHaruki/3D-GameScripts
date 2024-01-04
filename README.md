@@ -23,4 +23,4 @@
 
 - Falling State Script Added (Includes animation)
 - Animations Script (Added the animation booleans)
-
+- Change State Script (Added The Falling and Jumping State)
