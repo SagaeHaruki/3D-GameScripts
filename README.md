@@ -22,4 +22,5 @@
 > What's New:
 
 - Falling State Script Added (Includes animation)
+- Animations Script (Added the animation booleans)
 
