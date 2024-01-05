@@ -48,4 +48,6 @@
 > Movement Change Script
 - Added a Dash Motion Including the ff. (Cooldown, Duration, Distance, DashTime, and canDash).
 - Change the sprinting method instead of holding it. Explanation: "When pressing the [LShift], you start by dashing, after a short while you will start sprinting, to stop sprinting, you must stop moving".
+- Since you can now detect if going up or down a slope; movement change based on going up or down a slope, (Exept for the walking, it stays on current walking speed).
+- Adjusted all the movement speed modifier, this is to sync with the Animation Speed.
 
