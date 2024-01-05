@@ -45,3 +45,7 @@
 - Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
 - Fix the jump when walking. [This doesn't work before]
 
+> Movement Change Script
+- Added a Dash Motion Including the ff. (Cooldown, Duration, Distance, DashTime, and canDash).
+- Change the sprinting method instead of holding it. Explanation: "When pressing the [LShift], you start by dashing, after a short while you will start sprinting, to stop sprinting, you must stop moving".
+
