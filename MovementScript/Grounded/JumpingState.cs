@@ -6,7 +6,7 @@ public class JumpingState : MonoBehaviour
 {
     Movement playerMovement;
 
-    [SerializeField] private float jumpCooldown = 1.5f;
+    [SerializeField] private float jumpCooldown = 1f;
     [SerializeField] private float lastJumpTime;
     [SerializeField] private bool canJump = true;
 
@@ -37,6 +37,12 @@ public class JumpingState : MonoBehaviour
                 if (playerMovement.isMoving)
                 {
                     if (playerMovement.isRunning || playerMovement.isSprinting)
+                    {
+                        playerMovement.isJumping = true;
+                        playerMovement.Velocity.y = playerMovement.jumpForce;
+                    }
+
+                    if (playerMovement.isWalking)
                     {
                         playerMovement.isJumping = true;
                         playerMovement.Velocity.y = playerMovement.jumpForce;

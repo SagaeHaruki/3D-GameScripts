@@ -7,6 +7,7 @@ public class FallingState : MonoBehaviour
     Movement playerMovement;
 
     private float fallDelay = -4.2f;
+    private float fallDelay2 = -6.5f;
 
     private void Awake()
     {
@@ -37,10 +38,16 @@ public class FallingState : MonoBehaviour
                 if (currentHeight >= playerMovement.FallingHeightDiff)
                 {
                     Vector3 moveDirection = transform.forward;
-                    playerMovement.charControl.Move(moveDirection * 1.2f * Time.deltaTime);
-                    if (playerMovement.Velocity.y <= fallDelay)
+                    if (playerMovement.Velocity.y <= fallDelay && !playerMovement.isWalking)
                     {
                         playerMovement.isFalling = true;
+                        playerMovement.charControl.Move(moveDirection * 1.2f * Time.deltaTime);
+                    }
+
+                    if (playerMovement.Velocity.y <= fallDelay2 && playerMovement.isWalking)
+                    {
+                        playerMovement.isFalling = true;
+                        playerMovement.charControl.Move(moveDirection * 1.2f * Time.deltaTime);
                     }
                 }
             }

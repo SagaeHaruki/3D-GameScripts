@@ -6,6 +6,8 @@ public class GroundedState : MonoBehaviour
 {
     Movement playerMovement;
 
+    private float previousYPosition;
+
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
@@ -18,22 +20,8 @@ public class GroundedState : MonoBehaviour
             return;
         }
 
-        GroundedPlayer();
         AddGravity();
         SlopeChecker();
-    }
-
-    private void GroundedPlayer()
-    {
-        //if (playerMovement.charControl.isGrounded)
-        //{
-        //    playerMovement.isGrounded = true;
-        //}
-
-        //if (!playerMovement.charControl.isGrounded)
-        //{
-        //    playerMovement.isGrounded = false;  
-        //}
     }
 
     private void AddGravity()
@@ -54,7 +42,7 @@ public class GroundedState : MonoBehaviour
         else
         {
             playerMovement.isGrounded = false;
-            playerMovement.Velocity.y -= playerMovement.Gravity * -2f * Time.deltaTime;
+            playerMovement.Velocity.y -= playerMovement.Gravity * -1.5f * Time.deltaTime;
         }
         playerMovement.charControl.Move(playerMovement.Velocity * Time.deltaTime);
     }
@@ -65,14 +53,42 @@ public class GroundedState : MonoBehaviour
         {
             Vector3 groundNormal = hit.normal;
             playerMovement.slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
+            float currentYPosition = transform.position.y;
             if (playerMovement.slopeAngle >= 1f)
             {
                 playerMovement.onSlope = true;
+                if (playerMovement.isMoving)
+                {
+                    if (currentYPosition > previousYPosition)
+                    {
+                        playerMovement.goingUp = true;
+                        playerMovement.goingDown = false;
+                    }
+                    else if (currentYPosition < previousYPosition)
+                    {
+                        playerMovement.goingUp = false;
+                        playerMovement.goingDown = true;
+                    }
+                    else
+                    {
+                        playerMovement.goingDown = false;
+                        playerMovement.goingUp = false;
+                        return;
+                    }
+                }
+                else
+                {
+                    playerMovement.goingDown = false;
+                    playerMovement.goingUp = false;
+                }
+                previousYPosition = currentYPosition;
             }
         }
         else
         {
             playerMovement.onSlope = false;
+            playerMovement.goingDown = false;
+            playerMovement.goingUp = false;
         }
     }
 }

@@ -46,6 +46,11 @@ public class ChangeState : MonoBehaviour
                 {
                     playerMovement.playerState = "Jumping";
                 }
+
+                if (playerMovement.isDashing)
+                {
+                    playerMovement.playerState = "Dashing";
+                }
             }
 
             if (!playerMovement.isMoving)

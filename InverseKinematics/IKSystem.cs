@@ -47,6 +47,7 @@ public class IKSystem : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
+        enableFeetIk = true;
     }
 
     private void Update()

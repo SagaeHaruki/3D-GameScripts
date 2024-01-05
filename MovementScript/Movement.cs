@@ -34,8 +34,9 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector3 Velocity; // Might be used for some things
 
     // Jump Movement
-    [SerializeField] public float jumpForce = 7.2f;
-    [SerializeField] public float jumpForwardForce = 2.3f;
+    [SerializeField] public float jumpForce = 4.4f;
+    [SerializeField] public float runningForce = 3.2f;
+    [SerializeField] public float sprintForce = 4.2f;
 
     // Player Ground detection
     [SerializeField] public float FallingHeightDiff = 1.5f;
@@ -56,6 +57,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool isRunning;
     [SerializeField] public bool isSprinting;
     [SerializeField] public bool isJumping;
+    [SerializeField] public bool isDashing;
     [SerializeField] public bool isAttacking;
 
     // Airborne States
@@ -64,6 +66,8 @@ public class Movement : MonoBehaviour
     // Grounded State
     [SerializeField] public bool isGrounded;
     [SerializeField] public bool onSlope;
+    [SerializeField] public bool goingUp;
+    [SerializeField] public bool goingDown;
     #endregion
 
     private void Awake()
@@ -91,16 +95,28 @@ public class Movement : MonoBehaviour
             {
                 if (!isFalling)
                 {
-                    // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
-                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
-                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
-                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                    if (!isJumping)
+                    {
+                        // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
+                        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
+                        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
+                        transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                    float newSpeed = playerSpeed * speedModifier;
-                    Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                    charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                        float newSpeed = playerSpeed * speedModifier;
 
-                    isMoving = true;
+                        Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                        charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+
+                        isMoving = true;
+                    }
+
+                    if (isJumping && isSprinting)
+                    {
+                        float newSpeed = playerSpeed * speedModifier;
+
+                        Vector3 newDirection = transform.forward;
+                        charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                    }
                 }
             }
         }
