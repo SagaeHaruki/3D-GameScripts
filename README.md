@@ -43,5 +43,5 @@
 
 > Jumping State Script
 - Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
-- 
+- Fix the jump when walking. [This doesn't work before]
 
