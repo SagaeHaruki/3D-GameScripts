@@ -35,3 +35,6 @@
 - Added the Dashing Bool for animation
 - Adjusted some part upon adding the Dash Animation
 
+> Change State Script
+- Added the Dash player state
+
