@@ -41,5 +41,7 @@
 - Adjusted the gravity pull to the ground from (-2f to -1.5f), for better falling pull.
 - Player can now detect if going up or down a slope.
 
->
+> Jumping State Script
+- Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
+- 
 
