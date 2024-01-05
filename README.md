@@ -20,6 +20,18 @@
 <h1>Current Changes: [January 04, 2024]</h1>
 
 > What's New:
+
 > IK Script
 - Minor Adjustment
->
+  
+> Movement Script
+- When Sprinting & Jumping, the distance of the jump is further than running.
+
+> Falling State Script
+- Adjust the falling delay when walking.
+- Move the player when Falling, to avoid gliches.
+
+> Animations Script
+- Added the Dashing Bool for animation
+- Adjusted some part upon adding the Dash Animation
+
