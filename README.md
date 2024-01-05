@@ -31,6 +31,7 @@
 
 > Animations Script
 - Added the Dashing Bool for animation.
+- Added the Idle Jumping animation.
 - Adjusted some part upon adding the Dash Animation.
 
 > Change State Script
