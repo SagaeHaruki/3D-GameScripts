@@ -17,9 +17,7 @@
 - Minimap Script
 - Enemy Attack & Player Detection Script
 
-<h1>Current Changes: [January 04, 2024]</h1>
-
-> What's New:
+<h1>Current Changes: [January 05, 2024]</h1>
 
 > IK Script
 - Minor Adjustment
