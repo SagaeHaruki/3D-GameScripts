@@ -31,8 +31,11 @@
 
 > Animations Script
 - Added the Dashing Bool for animation
-- Adjusted some part upon adding the Dash Animation
+- Adjusted some part upon adding the Dash Animation/
 
 > Change State Script
 - Added the Dash player state
+
+> Grounded State Script
+- Adjusted the gravity pull to the ground from (-2f to -1.5f), for better falling pull.
 
