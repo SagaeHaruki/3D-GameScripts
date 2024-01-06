@@ -44,7 +44,7 @@
 - Explanation: this is due to limited amount of free animations i've got.
 
 > Grounded State Script:
-- You have no gravity when swimming.
+- Player will have no gravity when swimming. (Prolly not the right way to say it)
 - Edit: Might revert this in exchange for invisible layer that the player can swim through.
 - Explanation: Some animation are glitching upon using no gravity.
 
@@ -53,8 +53,9 @@
 - Fix the jump when walking. [This doesn't work before]
 
 > Movement Change Script:
-- Added a Dash Motion Including the ff. (Cooldown, Duration, Distance, DashTime, and canDash).
-- Change the sprinting method instead of holding it. Explanation: "When pressing the [LShift], you start by dashing, after a short while you will start sprinting, to stop sprinting, you must stop moving".
-- Since you can now detect if going up or down a slope; movement change based on going up or down a slope, (Exept for the walking, it stays on current walking speed).
-- Adjusted all the movement speed modifier, this is to sync with the Animation Speed.
+- Player will be unable to dash when swimming.
+
+> Swimming Script (New):
+- Note: This Script will be added to a (Mainly a cube), with on Trigger effect.
+- The cube will be positioned in a right height, for better trigger
 
