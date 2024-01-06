@@ -17,13 +17,16 @@
 - Minimap Script
 - Enemy Attack & Player Detection Script
 
-<h1>Current Changes: [January 05, 2024]</h1>
+<h1>Current Changes: [January 06, 2024]</h1>
+
+> What's New: "Added a Swimming State"
 
 > IK Script
-- Minor Adjustment
+- IK System will not work when the player is currently swimming.
+- Explanation: apparently the ik system magnets the player to the ground. 
   
 > Movement Script
-- When Sprinting & Jumping, the distance of the jump is further than running.
+- Added a few variables for the newly added "Swimming State'
 
 > Falling State Script
 - Adjust the falling delay when walking.
