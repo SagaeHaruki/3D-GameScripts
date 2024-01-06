@@ -44,8 +44,9 @@
 - Explanation: this is due to limited amount of free animations i've got.
 
 > Grounded State Script:
-- Adjusted the gravity pull to the ground from (-2f to -1.5f), for better falling pull.
-- Player can now detect if going up or down a slope.
+- You have no gravity when swimming.
+- Edit: Might revert this in exchange for invisible layer that the player can swim through.
+- Explanation: Some animation are glitching upon using no gravity.
 
 > Jumping State Script:
 - Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
