@@ -29,8 +29,7 @@
 - Added a few variables for the newly added "Swimming State'
 
 > Falling State Script
-- Adjust the falling delay when walking.
-- Move the player when Falling, to avoid gliches.
+- Fixed when the player is currently falling, and the is swimming tirgger, isFalling state will be turned off.
 
 > Animations Script
 - Added the Dashing Bool for animation.
