@@ -20,34 +20,36 @@
 <h1>Current Changes: [January 06, 2024]</h1>
 
 > What's New?: "Added a Swimming State"
+- Pros: 2 Swimming state added, player can swim!
+- Cons: Unfortunately, the animation is making the character under the water, in solution to this, Stamina will affect or will introduce a Lung Capacity/Oxygen
 
-> IK Script
+> IK Script:
 - IK System will not work when the player is currently swimming.
 - Explanation: apparently the ik system magnets the player to the ground. 
   
-> Movement Script
-- Added a few variables for the newly added "Swimming State'
+> Movement Script:
+- Added a few variables for the newly added "Swimming State'.
 
-> Falling State Script
+> Falling State Script:
 - Fixed when the player is currently falling, and the is swimming tirgger, isFalling state will be turned off.
 
-> Animations Script
+> Animations Script:
 - Added 2 new booleans for the Swimming, isSwimIdle and isSwimming.
-- Since there will be 2 new idle states (When grounded and When swimming)
-- Edit: 2 new animations were introduced (Water threading = "Idle" and the Swmming = "Moving Swim")
+- Since there will be 2 new idle states (When grounded and When swimming).
+- Edit: 2 new animations were introduced (Water threading = "Idle" and the Swmming = "Moving Swim").
 
-> Change State Script
+> Change State Script:
 - Added the Dash player state.
 
-> Grounded State Script
+> Grounded State Script:
 - Adjusted the gravity pull to the ground from (-2f to -1.5f), for better falling pull.
 - Player can now detect if going up or down a slope.
 
-> Jumping State Script
+> Jumping State Script:
 - Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
 - Fix the jump when walking. [This doesn't work before]
 
-> Movement Change Script
+> Movement Change Script:
 - Added a Dash Motion Including the ff. (Cooldown, Duration, Distance, DashTime, and canDash).
 - Change the sprinting method instead of holding it. Explanation: "When pressing the [LShift], you start by dashing, after a short while you will start sprinting, to stop sprinting, you must stop moving".
 - Since you can now detect if going up or down a slope; movement change based on going up or down a slope, (Exept for the walking, it stays on current walking speed).
