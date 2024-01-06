@@ -39,7 +39,9 @@
 - Edit: 2 new animations were introduced (Water threading = "Idle" and the Swmming = "Moving Swim").
 
 > Change State Script:
-- Added the Dash player state.
+- Introduced 4 types of swimming States (Swim Idle, Slow Swim, Fast Swim, Speed Swim).
+- Edit: might only do (Swim Dile, Slow Swim, and Fast Swim).
+- Explanation: this is due to limited amount of free animations i've got.
 
 > Grounded State Script:
 - Adjusted the gravity pull to the ground from (-2f to -1.5f), for better falling pull.
