@@ -34,6 +34,7 @@
 > Animations Script
 - Added 2 new booleans for the Swimming, isSwimIdle and isSwimming.
 - Since there will be 2 new idle states (When grounded and When swimming)
+- Edit: 2 new animations were introduced (Water threading = "Idle" and the Swmming = "Moving Swim")
 
 > Change State Script
 - Added the Dash player state.
