@@ -19,7 +19,7 @@
 
 <h1>Current Changes: [January 06, 2024]</h1>
 
-> What's New: "Added a Swimming State"
+> What's New?: "Added a Swimming State"
 
 > IK Script
 - IK System will not work when the player is currently swimming.
@@ -32,9 +32,8 @@
 - Fixed when the player is currently falling, and the is swimming tirgger, isFalling state will be turned off.
 
 > Animations Script
-- Added the Dashing Bool for animation.
-- Added the Idle Jumping animation.
-- Adjusted some part upon adding the Dash Animation.
+- Added 2 new booleans for the Swimming, isSwimIdle and isSwimming.
+- Since there will be 2 new idle states (When grounded and When swimming)
 
 > Change State Script
 - Added the Dash player state.
