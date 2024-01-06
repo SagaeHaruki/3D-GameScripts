@@ -30,7 +30,7 @@ public class JumpingState : MonoBehaviour
 
     private void NormalJumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump)
+        if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump && !playerMovement.isSwimming)
         {
             if (playerMovement.isGrounded)
             {
@@ -60,6 +60,10 @@ public class JumpingState : MonoBehaviour
             }
         }
         else if (playerMovement.charControl.isGrounded)
+        {
+            playerMovement.isJumping = false;
+        }
+        else if (playerMovement.isSwimming)
         {
             playerMovement.isJumping = false;
         }

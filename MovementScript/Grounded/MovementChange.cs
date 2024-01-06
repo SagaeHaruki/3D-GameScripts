@@ -33,7 +33,7 @@ public class MovementChange : MonoBehaviour
 
     private void SprintingKey()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming)
         {
             if (playerMovement.isGrounded)
             {

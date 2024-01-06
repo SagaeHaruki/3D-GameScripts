@@ -26,7 +26,7 @@ public class FallingState : MonoBehaviour
 
     private void CheckFallingState()
     {
-        if (!playerMovement.isGrounded)
+        if (!playerMovement.isGrounded && !playerMovement.isSwimming)
         {
             RaycastHit hit;
             Ray ray = new Ray(transform.position, Vector3.down);
@@ -53,6 +53,10 @@ public class FallingState : MonoBehaviour
             }
         }
         else if (playerMovement.charControl.isGrounded)
+        {
+            playerMovement.isFalling = false;
+        }
+        else if (playerMovement.isSwimming)
         {
             playerMovement.isFalling = false;
         }

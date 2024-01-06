@@ -24,6 +24,10 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Player Values
+
+    // On Water Physics
+    [SerializeField] public float waterLevel = 4f;
+    [SerializeField] public float underwaterGravity = -3f;
     // Gravity Application
     [SerializeField] public float Gravity = -9.81f;
 
@@ -59,6 +63,9 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool isJumping;
     [SerializeField] public bool isDashing;
     [SerializeField] public bool isAttacking;
+
+    // On Water States
+    [SerializeField] public bool isSwimming;
 
     // Airborne States
     [SerializeField] public bool isFalling;

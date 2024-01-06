@@ -27,35 +27,64 @@ public class ChangeState : MonoBehaviour
         {
             if (playerMovement.isMoving)
             {
-                if (playerMovement.isWalking)
+                if (!playerMovement.isSwimming)
                 {
-                    playerMovement.playerState = "Walking";
+                    if (playerMovement.isWalking)
+                    {
+                        playerMovement.playerState = "Walking";
+                    }
+
+                    if (playerMovement.isRunning)
+                    {
+                        playerMovement.playerState = "Running";
+                    }
+
+                    if (playerMovement.isSprinting)
+                    {
+                        playerMovement.playerState = "Sprinting";
+                    }
+
+                    if (playerMovement.isJumping)
+                    {
+                        playerMovement.playerState = "Jumping";
+                    }
+
+                    if (playerMovement.isDashing)
+                    {
+                        playerMovement.playerState = "Dashing";
+                    }
                 }
 
-                if (playerMovement.isRunning)
+                if (playerMovement.isSwimming)
                 {
-                    playerMovement.playerState = "Running";
-                }
+                    if (playerMovement.isWalking)
+                    {
+                        playerMovement.playerState = "SlowSwim";
+                    }
 
-                if (playerMovement.isSprinting)
-                {
-                    playerMovement.playerState = "Sprinting";
-                }
+                    if (playerMovement.isRunning)
+                    {
+                        playerMovement.playerState = "FastSwim";
+                    }
 
-                if (playerMovement.isJumping)
-                {
-                    playerMovement.playerState = "Jumping";
-                }
-
-                if (playerMovement.isDashing)
-                {
-                    playerMovement.playerState = "Dashing";
+                    if (playerMovement.isSprinting)
+                    {
+                        playerMovement.playerState = "SpeedSwim";
+                    }
                 }
             }
 
             if (!playerMovement.isMoving)
             {
-                playerMovement.playerState = "Idle";
+                if (!playerMovement.isSwimming)
+                {
+                    playerMovement.playerState = "Idle";
+                }
+
+                if (playerMovement.isSwimming)
+                {
+                    playerMovement.playerState = "IdleSwim";
+                }
             }
         }
 
