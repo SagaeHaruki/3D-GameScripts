@@ -7,17 +7,14 @@
 - If Some Objects can be added here then i will also publicly allow anyone to use it.
 - This is using a Unity Editor version of (2021.3.23f1).
 
-> On this day [January, 7 2024]
-- There will be no code updates to this project, i will start to make papers for this project discussing how thingss will work and how the game will be played.
-
 <h1>Future plans:</h1>
 
 - Attacking Script
 - NPC Interaction Script
-- Inventory System Script (Prolly max of 9 or 10 Slots)
+- Inventory System Script (Prolly max of 9 or 10 Slots).
 - Menu / Pause Game Script
 - Loading Screen Script
-- Minimap Script
+- Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script
 
 <h1>Current Changes: [January 06, 2024]</h1>
