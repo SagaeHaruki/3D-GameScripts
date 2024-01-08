@@ -20,15 +20,14 @@
 
 <h1>Current Changes: [January 06, 2024]</h1>
 
-> What's New?: "Added a Swimming State"
-
+> What's New?: "Re-Implementing the Camera Zoom Script"
+- This allows for the zoom in and out of the camera
 
 > IK Script:
-- IK System will not work when the player is currently swimming.
-- Explanation: apparently the ik system magnets the player to the ground. 
+- Some basic adjustments.
   
 > Movement Script:
-- Added a few variables for the newly added "Swimming State'.
+- Added the required component - (Camera Zoom Script).
 
 > Falling State Script:
 - Fixed when the player is currently falling, and the is swimming tirgger, isFalling state will be turned off.
