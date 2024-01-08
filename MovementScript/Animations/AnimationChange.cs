@@ -25,8 +25,10 @@ public class AnimationChange : MonoBehaviour
     {
         if (!playerMovement.isFalling)
         {
+            // Player Moving
             if(playerMovement.isMoving)
             {
+                // Player Not Swimming
                 if (!playerMovement.isSwimming)
                 {
                     if (playerMovement.isWalking)
@@ -34,6 +36,7 @@ public class AnimationChange : MonoBehaviour
                         playerMovement.animator.SetBool("isWalking", true);
                         playerMovement.animator.SetBool("isRunning", false);
                         playerMovement.animator.SetBool("isSprinting", false);
+                        playerMovement.animator.SetBool("isJumping", false);
                         playerMovement.animator.SetBool("isFalling", false);
                         playerMovement.animator.SetBool("isDashing", false);
                         playerMovement.animator.SetBool("isSwimming", false);
@@ -44,6 +47,7 @@ public class AnimationChange : MonoBehaviour
                         playerMovement.animator.SetBool("isWalking", false);
                         playerMovement.animator.SetBool("isRunning", true);
                         playerMovement.animator.SetBool("isSprinting", false);
+                        playerMovement.animator.SetBool("isJumping", false);
                         playerMovement.animator.SetBool("isFalling", false);
                         playerMovement.animator.SetBool("isDashing", false);
                         playerMovement.animator.SetBool("isSwimming", false);
@@ -54,6 +58,7 @@ public class AnimationChange : MonoBehaviour
                         playerMovement.animator.SetBool("isWalking", false);
                         playerMovement.animator.SetBool("isRunning", false);
                         playerMovement.animator.SetBool("isSprinting", true);
+                        playerMovement.animator.SetBool("isJumping", false);
                         playerMovement.animator.SetBool("isFalling", false);
                         playerMovement.animator.SetBool("isDashing", false);
                         playerMovement.animator.SetBool("isSwimming", false);
@@ -91,11 +96,13 @@ public class AnimationChange : MonoBehaviour
                     #endregion
                 }
 
+                // Player Swimming
                 if (playerMovement.isSwimming)
                 {
                     playerMovement.animator.SetBool("isWalking", false);
                     playerMovement.animator.SetBool("isRunning", false);
                     playerMovement.animator.SetBool("isSprinting", false);
+                    playerMovement.animator.SetBool("isJumping", false);
                     playerMovement.animator.SetBool("isFalling", false);
                     playerMovement.animator.SetBool("isDashing", false);
                     playerMovement.animator.SetBool("isSwimming", true);
@@ -103,24 +110,48 @@ public class AnimationChange : MonoBehaviour
                 }
             }
 
-            if (!playerMovement.isJumping)
+            // Not Moving Player
+            if (!playerMovement.isMoving)
             {
-                if (!playerMovement.isMoving)
+                playerMovement.animator.SetBool("isWalking", false);
+                playerMovement.animator.SetBool("isRunning", false);
+                playerMovement.animator.SetBool("isSprinting", false);
+                playerMovement.animator.SetBool("isJumping", false);
+                playerMovement.animator.SetBool("isFalling", false);
+                playerMovement.animator.SetBool("isSwimming", false);
+
+                // Jumping Player
+                if (playerMovement.isJumping)
+                {
+                    playerMovement.animator.SetBool("isWalking", false);
+                    playerMovement.animator.SetBool("isRunning", false);
+                    playerMovement.animator.SetBool("isSprinting", false);
+                    playerMovement.animator.SetBool("isJumping", true);
+                    playerMovement.animator.SetBool("isFalling", false);
+                }
+
+                // Jumping Player
+                if (!playerMovement.isJumping)
                 {
                     playerMovement.animator.SetBool("isWalking", false);
                     playerMovement.animator.SetBool("isRunning", false);
                     playerMovement.animator.SetBool("isSprinting", false);
                     playerMovement.animator.SetBool("isJumping", false);
                     playerMovement.animator.SetBool("isFalling", false);
-                    playerMovement.animator.SetBool("isSwimming", false);
-                    playerMovement.animator.SetBool("isSwimIdle", true);
-
-                    if (!playerMovement.isDashing)
-                    {
-                        playerMovement.animator.SetBool("isDashing", false);
-                    }
                 }
 
+                // Swimming Section
+                if (playerMovement.isSwimming)
+                {
+                    playerMovement.animator.SetBool("isSwimIdle", true);
+                }
+
+                if (!playerMovement.isSwimming)
+                {
+                    playerMovement.animator.SetBool("isSwimIdle", false);
+                }
+
+                // Dashing Section
                 if (playerMovement.isDashing)
                 {
                     playerMovement.animator.SetBool("isWalking", false);
@@ -129,17 +160,10 @@ public class AnimationChange : MonoBehaviour
                     playerMovement.animator.SetBool("isFalling", false);
                     playerMovement.animator.SetBool("isDashing", true);
                 }
-            }                                                                                                                                                                               
-             
-            if (playerMovement.isJumping)                                                                       
-            {
-                if (!playerMovement.isMoving)
+
+                if (!playerMovement.isDashing)
                 {
-                    playerMovement.animator.SetBool("isWalking", false);
-                    playerMovement.animator.SetBool("isRunning", false);
-                    playerMovement.animator.SetBool("isSprinting", false);
-                    playerMovement.animator.SetBool("isJumping", true);
-                    playerMovement.animator.SetBool("isFalling", false);
+                    playerMovement.animator.SetBool("isDashing", false);
                 }
             }
         }

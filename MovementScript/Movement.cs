@@ -10,6 +10,7 @@ using UnityEngine;
 [RequireComponent(typeof(AnimationChange))]
 [RequireComponent(typeof(IKSystem))]
 [RequireComponent(typeof(FallingState))]
+[RequireComponent(typeof(CameraZoom))]
 public class Movement : MonoBehaviour
 {
     #region Camera Fields

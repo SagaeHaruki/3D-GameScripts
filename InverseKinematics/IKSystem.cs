@@ -12,7 +12,7 @@ public class IKSystem : MonoBehaviour
     #endregion
 
     #region booleans
-    [SerializeField] private bool useProIK = false;
+    [SerializeField] private bool useProIK = true;
     [SerializeField] private bool startIK;
     [SerializeField] private bool enableFeetIk = true;
     [SerializeField] private bool showDebugs = true;
@@ -48,6 +48,7 @@ public class IKSystem : MonoBehaviour
     {
         playerMovement = GetComponent<Movement>();
         enableFeetIk = true;
+        useProIK = true;
     }
 
     private void Update()

@@ -85,6 +85,11 @@ public class ChangeState : MonoBehaviour
                 {
                     playerMovement.playerState = "IdleSwim";
                 }
+
+                if (playerMovement.isJumping)
+                {
+                    playerMovement.playerState = "IdleJump";
+                }
             }
         }
 
