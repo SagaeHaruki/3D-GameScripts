@@ -14,14 +14,14 @@
 - Inventory System Script (Prolly max of 9 or 10 Slots).
 - Menu / Pause Game Script
 - Loading Screen Script
+- Stamina and Oxygen System (Stamina System is already done, i haven't re-implemented it yet) (Oxygen System will be same to Stamina system, but only works when the player is swimming).
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script
 
 <h1>Current Changes: [January 06, 2024]</h1>
 
 > What's New?: "Added a Swimming State"
-- Pros: 2 Swimming state added, player can swim!
-- Cons: Unfortunately, the animation is making the character under the water, in solution to this, Stamina will affect or will introduce a Lung Capacity/Oxygen
+
 
 > IK Script:
 - IK System will not work when the player is currently swimming.
