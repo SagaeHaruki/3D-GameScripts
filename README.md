@@ -36,23 +36,20 @@
 - Adjustments of the animation booleans, where some animations doesn't start or stop, this is due to impropper (True and false statement for the animations).
 
 > Change State Script:
-- Introduced 4 types of swimming States (Swim Idle, Slow Swim, Fast Swim, Speed Swim).
-- Edit: might only do (Swim Dile, Slow Swim, and Fast Swim).
-- Explanation: this is due to limited amount of free animations i've got.
+- No Changes
 
 > Grounded State Script:
-- Player will have no gravity when swimming. (Prolly not the right way to say it)
-- Edit: Might revert this in exchange for invisible layer that the player can swim through.
-- Explanation: Some animation are glitching upon using no gravity.
+- No Changes
 
 > Jumping State Script:
-- Jump Cooldown adjusted from (1.5f to 1f). [Apparenly 1.5f is too long]
-- Fix the jump when walking. [This doesn't work before]
+- No Changes
 
 > Movement Change Script:
-- Player will be unable to dash when swimming.
+- No Changes
 
 > Swimming Script (New):
-- Note: This Script will be added to a (Mainly a cube), with on Trigger effect.
-- The cube will be positioned in a right height, for better trigger
+- No Changes
+
+> Camera Zoom Script (New):
+- Minor Sensitivity Adjustments
 
