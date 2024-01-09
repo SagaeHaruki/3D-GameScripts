@@ -18,34 +18,35 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script
 
-<h1>Current Changes: [January 06, 2024]</h1>
+<h1>Current Changes: [January 09, 2024]</h1>
 
-> What's New?: "Re-Implementing the Camera Zoom Script"
-- This allows for the zoom in and out of the camera
+> What's New?: ""
 
 > IK Script:
-- Some basic adjustments.
+- No Changes
   
 > Movement Script:
-- Added the required component - (Camera Zoom Script).
+- Added the required component - (Stamina System).
+- Added some new variables to be used for Stamina System.
 
 > Falling State Script:
-- Fixed when the player is currently falling, and the is swimming tirgger, isFalling state will be turned off.
+- No Changes
 
 > Animations Script:
-- Adjustments of the animation booleans, where some animations doesn't start or stop, this is due to impropper (True and false statement for the animations).
+- No Changes
 
 > Change State Script:
 - No Changes
 
 > Grounded State Script:
-- No Changes
+- Fixed the "No Gravity" when player is currently Swimming
 
 > Jumping State Script:
 - No Changes
 
 > Movement Change Script:
-- No Changes
+- Player Cannot Dash when they are low on Stamina
+- Player Cannot Sprint on Low Stamina
 
 > Swimming Script (New):
 - No Changes
