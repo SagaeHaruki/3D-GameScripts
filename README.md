@@ -60,3 +60,4 @@
 > Stamina System Script (New):
 - Added a Stamina for the player.
 - Added a Oxygen for the player.
+- Player Regenerates their Stamina and Oxyen when running low
