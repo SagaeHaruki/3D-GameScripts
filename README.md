@@ -55,7 +55,8 @@
 - Player will stop swimming when the oxygen is Running low
 
 > Camera Zoom Script (New):
-- Player can press a key (Default: LeftAlt) to show the Cursor and stop the camera Movement.
+- Player can press a key (Default: LeftAlt) to show the cursor and stop the camera Movement.
+- Player can now adjust their mouse sensitivity for the camera.
 
 > Stamina System Script (New):
 - Added a Stamina for the player.
