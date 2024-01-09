@@ -33,22 +33,24 @@ public class MovementChange : MonoBehaviour
 
     private void SprintingKey()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
         {
             if (playerMovement.isGrounded)
             {
+                playerMovement.currentStamina -= playerMovement.DecreaseRate;
                 playerMovement.isDashing = true;
+                playerMovement.isSprinting = false;
                 Vector3 dashDirection = transform.forward * dashDistance;
                 StartCoroutine(Dash(dashDirection));
                 StartCoroutine(DashCooldown());
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && !playerMovement.isDashing)
+        if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
         {
             playerMovement.isSprinting = true;
         }
-        else if(!playerMovement.isMoving && playerMovement.isSprinting)
+        else if (!playerMovement.isMoving && playerMovement.isSprinting)
         {
             playerMovement.isSprinting = false;
         }
@@ -56,7 +58,7 @@ public class MovementChange : MonoBehaviour
         if (playerMovement.isDashing)
         {
             dashTime += Time.deltaTime;
-            if (dashTime >= 0.3f)
+            if (dashTime >= 0.5f)
             {
                 playerMovement.isDashing = false;
                 dashTime = 0f;
@@ -101,7 +103,7 @@ public class MovementChange : MonoBehaviour
 
     private void ChangePlayerSpeed()
     {
-        if (!playerMovement.onSlope)
+        if (!playerMovement.onSlope && !playerMovement.isSwimming)
         {
             if (playerMovement.isWalking)
             {
@@ -119,7 +121,25 @@ public class MovementChange : MonoBehaviour
             }
         }
 
-        if (playerMovement.onSlope)
+        if (playerMovement.isSwimming)
+        {
+            if (playerMovement.isWalking)
+            {
+                playerMovement.speedModifier = 0.6f;
+            }
+
+            if (playerMovement.isRunning)
+            {
+                playerMovement.speedModifier = 0.6f;
+            }
+
+            if (playerMovement.isSprinting)
+            {
+                playerMovement.speedModifier = 1.5f;
+            }
+        }
+
+        if (playerMovement.onSlope && !playerMovement.isSwimming)
         {
             // Increase when going down
             if (playerMovement.goingDown)

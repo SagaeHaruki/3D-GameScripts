@@ -11,6 +11,7 @@ using UnityEngine;
 [RequireComponent(typeof(IKSystem))]
 [RequireComponent(typeof(FallingState))]
 [RequireComponent(typeof(CameraZoom))]
+[RequireComponent(typeof(StaminaSystem))]
 public class Movement : MonoBehaviour
 {
     #region Camera Fields
@@ -25,7 +26,6 @@ public class Movement : MonoBehaviour
     #endregion
 
     #region Player Values
-
     // On Water Physics
     [SerializeField] public float waterLevel = 4f;
     [SerializeField] public float underwaterGravity = -3f;
@@ -78,11 +78,24 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool goingDown;
     #endregion
 
+    #region Stamina & Oxygen System
+    [SerializeField] public float maxStamina = 120f;
+    [SerializeField] public float maxOxygen = 90f;
+    [SerializeField] public float currentOxygen;
+    [SerializeField] public float currentStamina;
+    [SerializeField] public float RegenRate = 9f;
+    [SerializeField] public float DecreaseRate = 12f;
+    [SerializeField] public bool canSwim;
+    [SerializeField] public bool canSprint;
+    #endregion
+
     private void Awake()
     {
         charControl = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         isRunning = true;
+        canSprint = true;
+        canSwim = true;
 
         // Hiding the Cursor
         Cursor.visible = false;
@@ -105,17 +118,20 @@ public class Movement : MonoBehaviour
                 {
                     if (!isJumping)
                     {
-                        // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
-                        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
-                        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
-                        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                        if (canSwim)
+                        {
+                            // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
+                            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
+                            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
+                            transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                        float newSpeed = playerSpeed * speedModifier;
+                            float newSpeed = playerSpeed * speedModifier;
 
-                        Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                        charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                            Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                            charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
 
-                        isMoving = true;
+                            isMoving = true;
+                        }
                     }
 
                     if (isJumping && isSprinting)

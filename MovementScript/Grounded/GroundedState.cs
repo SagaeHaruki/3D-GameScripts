@@ -26,28 +26,25 @@ public class GroundedState : MonoBehaviour
 
     private void AddGravity()
     {
-        if (!playerMovement.isSwimming)
+        float offset = 0.1f;
+
+        if (playerMovement.Velocity.y <= -7.5f)
         {
-            float offset = 0.1f;
-
-            if (playerMovement.Velocity.y <= -7.5f)
-            {
-                playerMovement.Velocity.y = -7.5f;
-            }
-
-            if (Physics.Raycast(transform.position + Vector3.up * offset, Vector3.down, out RaycastHit hit, offset + 0.1f) && !playerMovement.isJumping)
-            {
-                playerMovement.Velocity.y = -1f;
-                playerMovement.isGrounded = true;
-                playerMovement.isFalling = false;
-            }
-            else
-            {
-                playerMovement.isGrounded = false;
-                playerMovement.Velocity.y -= playerMovement.Gravity * -1.5f * Time.deltaTime;
-            }
-            playerMovement.charControl.Move(playerMovement.Velocity * Time.deltaTime);
+            playerMovement.Velocity.y = -7.5f;
         }
+
+        if (Physics.Raycast(transform.position + Vector3.up * offset, Vector3.down, out RaycastHit hit, offset + 0.1f) && !playerMovement.isJumping)
+        {
+            playerMovement.Velocity.y = -1f;
+            playerMovement.isGrounded = true;
+            playerMovement.isFalling = false;
+        }
+        else
+        {
+            playerMovement.isGrounded = false;
+            playerMovement.Velocity.y -= playerMovement.Gravity * -1.5f * Time.deltaTime;
+        }
+        playerMovement.charControl.Move(playerMovement.Velocity * Time.deltaTime);
     }
 
     private void SlopeChecker()
