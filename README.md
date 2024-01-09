@@ -9,20 +9,20 @@
 
 <h1>Future plans:</h1>
 
-- Attacking Script
-- NPC Interaction Script
+- Attacking Script.
+- NPC Interaction Script.
 - Inventory System Script (Prolly max of 9 or 10 Slots).
-- Menu / Pause Game Script
-- Loading Screen Script
-- Stamina and Oxygen System [DONE]
+- Menu / Pause Game Script.
+- Loading Screen Script.
+- Stamina and Oxygen System. [DONE]
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
-- Enemy Attack & Player Detection Script
+- Enemy Attack & Player Detection Script.
 
 <h1>Current Changes: [January 09, 2024]</h1>
 
 > What's New?: "Stamina Sytem"
-- Stamina System Re-Implemented
-- Small Changes to some Scritps
+- Stamina System Re-Implemented.
+- Small Changes to some Scritps.
 
 > IK Script:
 - No Changes
@@ -41,22 +41,22 @@
 - No Changes
 
 > Grounded State Script:
-- Fixed the "No Gravity" when player is currently Swimming
+- Fixed the "No Gravity" when player is currently Swimming.
 
 > Jumping State Script:
 - No Changes
 
 > Movement Change Script:
-- Player Cannot Dash when they are low on Stamina
-- Player Cannot Sprint on Low Stamina
-- Added a movement change when the player is on Swimming State
+- Player Cannot Dash when they are low on Stamina.
+- Player Cannot Sprint on Low Stamina.
+- Added a movement change when the player is on Swimming State.
 
 > Swimming Script (New):
 - Player will stop swimming when the oxygen is Running low
 
 > Camera Zoom Script (New):
-- Minor Sensitivity Adjustments
+- Player can press a key (Default: LeftAlt) to show the Cursor and stop the camera Movement.
 
 > Stamina System Script (New):
-- Added a Stamina for the player
-- Added a Oxygen for the player
+- Added a Stamina for the player.
+- Added a Oxygen for the player.
