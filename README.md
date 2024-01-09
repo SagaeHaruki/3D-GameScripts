@@ -62,3 +62,4 @@
 - Added a Stamina for the player.
 - Added a Oxygen for the player.
 - Player Regenerates their Stamina and Oxyen when running low
+- Player will be prevented to do some movements that requires stamina/oxygen when they are running low on it
