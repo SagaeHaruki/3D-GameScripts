@@ -20,7 +20,7 @@
 
 <h1>Current Changes: [January 09, 2024]</h1>
 
-> What's New?: ""
+> What's New?: "Small Implementations"
 
 > IK Script:
 - No Changes
