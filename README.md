@@ -18,7 +18,7 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [January 09, 2024]</h1>
+<h1>Current Changes: [January 10, 2024]</h1>
 
 > What's New?: "Attacking System"
 - It's Finally here! Attacking Script
