@@ -12,6 +12,7 @@ using UnityEngine;
 [RequireComponent(typeof(FallingState))]
 [RequireComponent(typeof(CameraZoom))]
 [RequireComponent(typeof(StaminaSystem))]
+[RequireComponent(typeof(AttackingScript))]
 public class Movement : MonoBehaviour
 {
     #region Camera Fields
@@ -65,6 +66,10 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool isDashing;
     [SerializeField] public bool isAttacking;
 
+    // Attacking State
+    [SerializeField] public bool allowAttack;
+    [SerializeField] public string attackType;
+
     // On Water States
     [SerializeField] public bool isSwimming;
 
@@ -112,6 +117,7 @@ public class Movement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
+            isMoving = true;
             if (!isAttacking)
             {
                 if (!isFalling)
@@ -129,8 +135,6 @@ public class Movement : MonoBehaviour
 
                             Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                             charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
-
-                            isMoving = true;
                         }
                     }
 

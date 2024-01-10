@@ -28,31 +28,34 @@ public class MovementChange : MonoBehaviour
         SprintingKey();
         ToggleWalkAndRun();
         ChangePlayerSpeed();
-
+        SwimmingChange();
     }
 
     private void SprintingKey()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
+        if (!playerMovement.isAttacking)
         {
-            if (playerMovement.isGrounded)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
             {
-                playerMovement.currentStamina -= playerMovement.DecreaseRate;
-                playerMovement.isDashing = true;
-                playerMovement.isSprinting = false;
-                Vector3 dashDirection = transform.forward * dashDistance;
-                StartCoroutine(Dash(dashDirection));
-                StartCoroutine(DashCooldown());
+                if (playerMovement.isGrounded)
+                {
+                    playerMovement.currentStamina -= playerMovement.DecreaseRate;
+                    playerMovement.isDashing = true;
+                    playerMovement.isSprinting = false;
+                    Vector3 dashDirection = transform.forward * dashDistance;
+                    StartCoroutine(Dash(dashDirection));
+                    StartCoroutine(DashCooldown());
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
-        {
-            playerMovement.isSprinting = true;
-        }
-        else if (!playerMovement.isMoving && playerMovement.isSprinting)
-        {
-            playerMovement.isSprinting = false;
+            if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
+            {
+                playerMovement.isSprinting = true;
+            }
+            else if (!playerMovement.isMoving && playerMovement.isSprinting)
+            {
+                playerMovement.isSprinting = false;
+            }
         }
 
         if (playerMovement.isDashing)
@@ -97,6 +100,45 @@ public class MovementChange : MonoBehaviour
             {
                 playerMovement.isRunning = true;
                 playerMovement.isWalking = false;
+            }
+        }
+    }
+
+    private void SwimmingChange()
+    {
+        if (playerMovement.isSwimming)
+        {
+            playerMovement.allowAttack = false;
+        }
+        else if (!playerMovement.isSwimming)
+        {
+            playerMovement.allowAttack = true;
+        }
+
+        if (!playerMovement.isJumping)
+        {
+            if (!playerMovement.isSwimming)
+            {
+                if (playerMovement.isFalling)
+                {
+                    playerMovement.allowAttack = false;
+                }
+                else if (!playerMovement.isFalling)
+                {
+                    playerMovement.allowAttack = true;
+                }
+            }
+        }
+
+        if (!playerMovement.isSwimming)
+        {
+            if (playerMovement.isJumping)
+            {
+                playerMovement.allowAttack = false;
+            }
+            else if (!playerMovement.isJumping)
+            {
+                playerMovement.allowAttack = true;
             }
         }
     }

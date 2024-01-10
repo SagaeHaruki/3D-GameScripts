@@ -30,42 +30,45 @@ public class JumpingState : MonoBehaviour
 
     private void NormalJumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump && !playerMovement.isSwimming)
+        if (!playerMovement.isAttacking)
         {
-            if (playerMovement.isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump && !playerMovement.isSwimming)
             {
-                if (playerMovement.isMoving)
+                if (playerMovement.isGrounded)
                 {
-                    if (playerMovement.isRunning || playerMovement.isSprinting)
+                    if (playerMovement.isMoving)
+                    {
+                        if (playerMovement.isRunning || playerMovement.isSprinting)
+                        {
+                            playerMovement.isJumping = true;
+                            playerMovement.Velocity.y = playerMovement.jumpForce;
+                        }
+
+                        if (playerMovement.isWalking)
+                        {
+                            playerMovement.isJumping = true;
+                            playerMovement.Velocity.y = playerMovement.jumpForce;
+                        }
+                    }
+
+                    if (!playerMovement.isMoving)
                     {
                         playerMovement.isJumping = true;
                         playerMovement.Velocity.y = playerMovement.jumpForce;
                     }
 
-                    if (playerMovement.isWalking)
-                    {
-                        playerMovement.isJumping = true;
-                        playerMovement.Velocity.y = playerMovement.jumpForce;
-                    }
+                    lastJumpTime = Time.time;
+                    canJump = false;
                 }
-
-                if (!playerMovement.isMoving)
-                {
-                    playerMovement.isJumping = true;
-                    playerMovement.Velocity.y = playerMovement.jumpForce;
-                }
-
-                lastJumpTime = Time.time;
-                canJump = false;
             }
-        }
-        else if (playerMovement.charControl.isGrounded)
-        {
-            playerMovement.isJumping = false;
-        }
-        else if (playerMovement.isSwimming)
-        {
-            playerMovement.isJumping = false;
+            else if (playerMovement.charControl.isGrounded)
+            {
+                playerMovement.isJumping = false;
+            }
+            else if (playerMovement.isSwimming)
+            {
+                playerMovement.isJumping = false;
+            }
         }
     }
 
