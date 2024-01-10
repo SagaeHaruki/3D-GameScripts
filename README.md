@@ -35,7 +35,8 @@
 - No Changes
 
 > Animations Script:
-- No Changes
+- Adjustments for smoother animation when Moving and is trying to attack
+- Adjustments for smoother animation when Not Moving and is tryign to attack
 
 > Change State Script:
 - Suppose to have a Attacking State. (Will do no next commit)
