@@ -20,16 +20,16 @@
 
 <h1>Current Changes: [January 09, 2024]</h1>
 
-> What's New?: "Stamina Sytem"
-- Stamina System Re-Implemented.
-- Small Changes to some Scritps.
+> What's New?: "Attacking System"
+- It's Finally here! Attacking Script
+- 3 New Animations for the Attacking Script
 
 > IK Script:
 - No Changes
   
 > Movement Script:
-- Added the required component - (Stamina System).
-- Added some new variables to be used for Stamina System.
+- Added a few Variables for the attacking Script (Including Cooldowns).
+- Adjustments to keep the player state "isMoving" even when attacking.
 
 > Falling State Script:
 - No Changes
