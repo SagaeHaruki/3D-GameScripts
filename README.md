@@ -38,28 +38,22 @@
 - No Changes
 
 > Change State Script:
-- No Changes
+- Suppose to have a Attacking State. (Will do no next commit)
 
 > Grounded State Script:
 - Fixed the "No Gravity" when player is currently Swimming.
 
 > Jumping State Script:
-- No Changes
+- Player will not be able to Jump when currently attacking.
 
 > Movement Change Script:
-- Player Cannot Dash when they are low on Stamina.
-- Player Cannot Sprint on Low Stamina.
-- Added a movement change when the player is on Swimming State.
+- Player will not be able to Dash when currently attacking.
 
 > Swimming Script (New):
-- Player will stop swimming when the oxygen is Running low
+- No Changes
 
 > Camera Zoom Script (New):
-- Player can press a key (Default: LeftAlt) to show the cursor and stop the camera Movement.
-- Player can now adjust their mouse sensitivity for the camera.
+- No Changes
 
 > Stamina System Script (New):
-- Added a Stamina for the player.
-- Added a Oxygen for the player.
-- Player Regenerates their Stamina and Oxyen when running low
-- Player will be prevented to do some movements that requires stamina/oxygen when they are running low on it
+- No Changes
