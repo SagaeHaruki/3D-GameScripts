@@ -50,6 +50,7 @@
 
 > Movement Change Script:
 - Player will not be able to Dash when currently attacking.
+- When the player is currently Airborned, Swimming or Jumping it cannot attack.
 
 > Swimming Script:
 - No Changes
