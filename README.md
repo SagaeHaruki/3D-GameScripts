@@ -35,8 +35,9 @@
 - No Changes
 
 > Animations Script:
-- Adjustments for smoother animation when Moving and is trying to attack
-- Adjustments for smoother animation when Not Moving and is tryign to attack
+- Adjustments for smoother animation when Moving and is trying to attack.
+- Adjustments for smoother animation when Not Moving and is tryign to attack.
+- Stop some animation when the player is attacking.
 
 > Change State Script:
 - Suppose to have a Attacking State. (Will do no next commit)
@@ -50,7 +51,7 @@
 > Movement Change Script:
 - Player will not be able to Dash when currently attacking.
 
-> Swimming Script (New):
+> Swimming Script:
 - No Changes
 
 > Camera Zoom Script (New):
@@ -58,3 +59,9 @@
 
 > Stamina System Script (New):
 - No Changes
+
+> Attacking Script (New):
+- Added 3 Attack Types
+- Each attack has cooldowns (To smoothen the animation)
+- When not moving animation has exit time.
+- When moving animation can exit faster.
