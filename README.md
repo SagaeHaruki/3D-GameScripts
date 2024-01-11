@@ -18,26 +18,23 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [January 10, 2024]</h1>
+<h1>Current Changes: [January 11, 2024]</h1>
 
 > What's New?: "Attacking System"
-- It's Finally here! Attacking Script
-- 3 New Animations for the Attacking Script
+- No Changes
+- Break Today
 
 > IK Script:
 - No Changes
   
 > Movement Script:
-- Added a few Variables for the attacking Script (Including Cooldowns).
-- Adjustments to keep the player state "isMoving" even when attacking.
+- No Changes
 
 > Falling State Script:
 - No Changes
 
 > Animations Script:
-- Adjustments for smoother animation when Moving and is trying to attack.
-- Adjustments for smoother animation when Not Moving and is tryign to attack.
-- Stop some animation when the player is attacking.
+- No Changes
 
 > Change State Script:
 - Suppose to have a Attacking State. (Will do no next commit)
