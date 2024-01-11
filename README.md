@@ -40,7 +40,7 @@
 - No Changes
 
 > Grounded State Script:
-- Fixed the "No Gravity" when player is currently Swimming.
+- No Changes
 
 > Jumping State Script:
 - Player will not be able to Jump when currently attacking.
