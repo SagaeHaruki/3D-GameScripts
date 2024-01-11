@@ -37,7 +37,7 @@
 - No Changes
 
 > Change State Script:
-- Suppose to have a Attacking State. (Will do no next commit)
+- No Changes
 
 > Grounded State Script:
 - Fixed the "No Gravity" when player is currently Swimming.
