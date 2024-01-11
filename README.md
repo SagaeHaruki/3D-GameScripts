@@ -43,11 +43,10 @@
 - No Changes
 
 > Jumping State Script:
-- Player will not be able to Jump when currently attacking.
+- No Changes
 
 > Movement Change Script:
-- Player will not be able to Dash when currently attacking.
-- When the player is currently Airborned, Swimming or Jumping it cannot attack.
+- No Changes
 
 > Swimming Script:
 - No Changes
