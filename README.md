@@ -58,7 +58,4 @@
 - No Changes
 
 > Attacking Script (New):
-- Added 3 Attack Types
-- Each attack has cooldowns (To smoothen the animation)
-- When not moving animation has exit time.
-- When moving animation can exit faster.
+- No Changes
