@@ -52,7 +52,8 @@
 - No Changes
 
 > Camera Zoom Script (New):
-- No Changes
+- Player cannot dash when holding the (LeftAlt) button.
+- Player cannot attack when holding the (LeftAlt) button.
 
 > Stamina System Script (New):
 - No Changes
