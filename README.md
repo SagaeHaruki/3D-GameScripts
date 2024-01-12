@@ -20,9 +20,9 @@
 
 <h1>Current Changes: [January 11, 2024]</h1>
 
-> What's New?: "Attacking System"
-- No Changes
-- Break Today
+> What's New?: "Chat Bubble, NPC and Player Interaction Scirpt"
+- All three are currently on Development
+- Within the next 2 weeks, i will improve on the scripts
 
 > IK Script:
 - No Changes
@@ -51,12 +51,24 @@
 > Swimming Script:
 - No Changes
 
-> Camera Zoom Script (New):
+> Camera Zoom Script:
 - Player cannot dash when holding the (LeftAlt) button.
 - Player cannot attack when holding the (LeftAlt) button.
 
-> Stamina System Script (New):
+> Stamina System Script:
 - No Changes
 
 > Attacking Script (New):
 - No Changes
+
+> Chat Bubble Script (New):
+- UNDER DEVELOPMENT
+- Modify and show Chat bubbles
+
+> NPC Script (New):
+- UNDER DEVELOPMENT
+- No Codes Yet
+
+> Player Interaction Script (New):
+- UNDER DEVELOPMENT
+- Allows for npc interaction within a range
