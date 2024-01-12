@@ -28,7 +28,8 @@
 - No Changes
   
 > Movement Script:
-- No Changes
+- Added a few variables
+- isInteracting doesn't allow some certain player movements.
 
 > Falling State Script:
 - No Changes
@@ -46,7 +47,7 @@
 - No Changes
 
 > Movement Change Script:
-- No Changes
+- Player cannot Dash if interacting with other NPC's
 
 > Swimming Script:
 - No Changes
@@ -59,7 +60,7 @@
 - No Changes
 
 > Attacking Script (New):
-- No Changes
+- Player cannot attack if it's interacting with NPC's
 
 > Chat Bubble Script (New):
 - UNDER DEVELOPMENT
