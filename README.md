@@ -11,8 +11,9 @@
 <h1>Future plans:</h1>
 
 - Attacking Script. [DONE]
-- NPC Interaction Script.
-- Inventory System Script (Prolly max of 9 or 10 Slots).
+- NPC Interaction Script. [Under Development]
+- Inventory System Script. [Under Development]
+- Player NPC interaction Script. [Under Development]
 - Menu / Pause Game Script.
 - Loading Screen Script.
 - Stamina and Oxygen System. [DONE]
