@@ -72,6 +72,8 @@ public class CameraZoom : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
+            playerMovement.allowAttack = false;
+            playerMovement.canDash = false;
             vcamToggle = false;
 
             // Toggle Virtual Camera
@@ -84,6 +86,8 @@ public class CameraZoom : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
+            playerMovement.allowAttack = true;
+            playerMovement.canDash = true;
             vcamToggle = true;
 
             // Toggle Virtual camera

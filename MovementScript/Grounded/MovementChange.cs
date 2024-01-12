@@ -11,7 +11,6 @@ public class MovementChange : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     [SerializeField] private float dashCooldown = 1.2f;
     [SerializeField] private float dashTime;
-    [SerializeField] private bool canDash = true;
 
     private void Awake()
     {
@@ -35,7 +34,7 @@ public class MovementChange : MonoBehaviour
     {
         if (!playerMovement.isAttacking)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && playerMovement.canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
             {
                 if (playerMovement.isGrounded)
                 {
@@ -81,9 +80,9 @@ public class MovementChange : MonoBehaviour
 
     IEnumerator DashCooldown()
     {
-        canDash = false;
+        playerMovement.canDash = false;
         yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
+        playerMovement.canDash = true;
         playerMovement.isDashing = false;
     }
 

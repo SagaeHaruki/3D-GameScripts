@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Required Components
 [RequireComponent(typeof(GroundedState))]
 [RequireComponent(typeof(MovementChange))]
 [RequireComponent(typeof(JumpingState))]
@@ -13,6 +14,9 @@ using UnityEngine;
 [RequireComponent(typeof(CameraZoom))]
 [RequireComponent(typeof(StaminaSystem))]
 [RequireComponent(typeof(AttackingScript))]
+[RequireComponent(typeof(OpenInventory))]
+[RequireComponent(typeof(PlayerInteract))]
+#endregion
 public class Movement : MonoBehaviour
 {
     #region Camera Fields
@@ -57,6 +61,7 @@ public class Movement : MonoBehaviour
     // Player State
     [SerializeField] public string playerState;
     [SerializeField] public bool isMoving;
+    [SerializeField] public bool isInteracting;
 
     // Player Movement Types
     [SerializeField] public bool isWalking;
@@ -81,6 +86,12 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool onSlope;
     [SerializeField] public bool goingUp;
     [SerializeField] public bool goingDown;
+
+    // Can State
+    [SerializeField] public bool canSwim;
+    [SerializeField] public bool canSprint;
+    [SerializeField] public bool canDash;
+    [SerializeField] public bool canMove;
     #endregion
 
     #region Stamina & Oxygen System
@@ -90,8 +101,6 @@ public class Movement : MonoBehaviour
     [SerializeField] public float currentStamina;
     [SerializeField] public float RegenRate = 9f;
     [SerializeField] public float DecreaseRate = 12f;
-    [SerializeField] public bool canSwim;
-    [SerializeField] public bool canSprint;
     #endregion
 
     private void Awake()
@@ -101,6 +110,8 @@ public class Movement : MonoBehaviour
         isRunning = true;
         canSprint = true;
         canSwim = true;
+        canDash = true;
+        canMove = true;
 
         // Hiding the Cursor
         Cursor.visible = false;
@@ -117,33 +128,39 @@ public class Movement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            isMoving = true;
-            if (!isAttacking)
+            if (canMove)
             {
-                if (!isFalling)
+                if (!isInteracting)
                 {
-                    if (!isJumping)
+                    isMoving = true;
+                    if (!isAttacking)
                     {
-                        if (canSwim)
+                        if (!isFalling)
                         {
-                            // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
-                            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
-                            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
-                            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                            if (!isJumping)
+                            {
+                                if (canSwim)
+                                {
+                                    // This Section will calculate the direction of the player, then smoothens it rotation based on the calulated direction
+                                    float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + MainCamera.eulerAngles.y;
+                                    float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref smoothingVelocity, turnSmoothing);
+                                    transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-                            float newSpeed = playerSpeed * speedModifier;
+                                    float newSpeed = playerSpeed * speedModifier;
 
-                            Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                            charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                                    Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+                                    charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                                }
+                            }
+
+                            if (isJumping && isSprinting)
+                            {
+                                float newSpeed = playerSpeed * speedModifier;
+
+                                Vector3 newDirection = transform.forward;
+                                charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
+                            }
                         }
-                    }
-
-                    if (isJumping && isSprinting)
-                    {
-                        float newSpeed = playerSpeed * speedModifier;
-
-                        Vector3 newDirection = transform.forward;
-                        charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
                     }
                 }
             }
