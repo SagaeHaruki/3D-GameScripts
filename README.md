@@ -20,9 +20,10 @@
 
 <h1>Current Changes: [January 11, 2024]</h1>
 
-> What's New?: "Chat Bubble, NPC and Player Interaction Scirpt"
-- All three are currently on Development
+> What's New?: "Chat Bubble, NPC, Inventory UI and Player Interaction Scirpt"
+- All four are currently on Development
 - Within the next 2 weeks, i will improve on the scripts
+- I'll be more focusing on some player interactions first
 
 > IK Script:
 - No Changes
