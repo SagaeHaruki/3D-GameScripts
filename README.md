@@ -65,9 +65,7 @@
 - No Changes
 
 > NPC Script (New):
-- UNDER DEVELOPMENT
-- No Codes Yet
+- No Changes
 
 > Player Interaction Script (New):
-- UNDER DEVELOPMENT
-- Allows for npc interaction within a range
+- No Changes
