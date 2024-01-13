@@ -62,8 +62,7 @@
 - No Changes
 
 > Chat Bubble Script (New):
-- UNDER DEVELOPMENT
-- Modify and show Chat bubbles
+- No Changes
 
 > NPC Script (New):
 - UNDER DEVELOPMENT
