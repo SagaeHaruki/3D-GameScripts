@@ -47,7 +47,7 @@
 - No Changes
 
 > Movement Change Script:
-- Player cannot Dash if interacting with other NPC's
+- No Changes
 
 > Swimming Script:
 - No Changes
