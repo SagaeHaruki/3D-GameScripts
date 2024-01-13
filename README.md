@@ -29,7 +29,7 @@
 - No Changes
   
 > Movement Script:
-- No Changes
+- Removed the Required Component, OpenUI Script
 
 > Falling State Script:
 - No Changes
@@ -53,8 +53,7 @@
 - No Changes
 
 > Camera Zoom Script:
-- Player cannot dash when holding the (LeftAlt) button.
-- Player cannot attack when holding the (LeftAlt) button.
+- No Changes
 
 > Stamina System Script:
 - No Changes
