@@ -59,7 +59,7 @@
 - No Changes
 
 > Attacking Script (New):
-- Player cannot attack if it's interacting with NPC's
+- No Changes
 
 > Chat Bubble Script (New):
 - UNDER DEVELOPMENT
