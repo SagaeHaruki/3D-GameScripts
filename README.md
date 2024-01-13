@@ -22,17 +22,14 @@
 
 <h1>Current Changes: [January 11, 2024]</h1>
 
-> What's New?: "Chat Bubble, NPC, Inventory UI and Player Interaction Scirpt"
-- All four are currently on Development
-- Within the next 2 weeks, i will improve on the scripts
-- I'll be more focusing on some player interactions first
+> What's New?: "Temporary removal of OpenUI Script"
+- Since the Inventory GUI is under development, there will be less updates to the scripts for now.
 
 > IK Script:
 - No Changes
   
 > Movement Script:
-- Added a few variables
-- isInteracting doesn't allow some certain player movements.
+- No Changes
 
 > Falling State Script:
 - No Changes
