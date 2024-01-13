@@ -14,7 +14,6 @@ using UnityEngine;
 [RequireComponent(typeof(CameraZoom))]
 [RequireComponent(typeof(StaminaSystem))]
 [RequireComponent(typeof(AttackingScript))]
-[RequireComponent(typeof(OpenInventory))]
 [RequireComponent(typeof(PlayerInteract))]
 #endregion
 public class Movement : MonoBehaviour
