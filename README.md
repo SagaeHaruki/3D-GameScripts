@@ -20,16 +20,17 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [January 11, 2024]</h1>
+<h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Temporary removal of OpenUI Script"
-- Since the Inventory GUI is under development, there will be less updates to the scripts for now.
+> What's New?: "Inventory Controller, Inventory UI and ItemUI script"
+- Introduction of the inventory System.
+- Player can now open the inventory by pressing the (B) key.
 
 > IK Script:
 - No Changes
   
 > Movement Script:
-- Removed the Required Component, OpenUI Script
+- Added a required component, PlayerInvCPL Script (Inventory Controller)
 
 > Falling State Script:
 - No Changes
@@ -69,3 +70,13 @@
 
 > Player Interaction Script (New):
 - No Changes
+
+> Player Inventory Controller Script (New):
+- Allows the player to open their inventory
+
+> Inventory UI Script (New):
+- This controls the prefab (Inventory)
+- Setting the default item list to 10, as current default.
+
+> Item UI Script (New):
+- No Input Yet
