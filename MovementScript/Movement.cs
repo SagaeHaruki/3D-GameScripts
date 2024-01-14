@@ -15,6 +15,7 @@ using UnityEngine;
 [RequireComponent(typeof(StaminaSystem))]
 [RequireComponent(typeof(AttackingScript))]
 [RequireComponent(typeof(PlayerInteract))]
+[RequireComponent(typeof(PlayerInvCPL))]
 #endregion
 public class Movement : MonoBehaviour
 {
