@@ -80,3 +80,6 @@
 
 > Item UI Script (New):
 - Item Select made Possible
+- Item Drag [Under Development]
+- Item Swap [Under Development]
+- Item Deselect [Under Development]
