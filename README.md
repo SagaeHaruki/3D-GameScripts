@@ -22,15 +22,15 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Inventory Controller, Inventory UI and ItemUI script"
-- Introduction of the inventory System.
-- Player can now open the inventory by pressing the (B) key.
+> What's New?: "Inventory Desciption Script"
+- Access the item's (Name, Image, Quantity and Description)
+- Which can be shown when clicked
 
 > IK Script:
 - No Changes
   
 > Movement Script:
-- Added a required component, PlayerInvCPL Script (Inventory Controller)
+- No Changes
 
 > Falling State Script:
 - No Changes
