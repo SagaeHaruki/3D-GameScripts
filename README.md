@@ -72,11 +72,11 @@
 - No Changes
 
 > Player Inventory Controller Script (New):
-- Allows the player to open their inventory
+- No Changes
 
 > Inventory UI Script (New):
-- This controls the prefab (Inventory)
-- Setting the default item list to 10, as current default.
+- Click events added
+- This is to know certain events happening in the inventory
 
 > Item UI Script (New):
-- No Input Yet
+- Item Select made Possible
