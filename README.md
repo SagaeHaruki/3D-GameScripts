@@ -83,3 +83,7 @@
 - Item Drag [Under Development]
 - Item Swap [Under Development]
 - Item Deselect [Under Development]
+- Options when using (RMB) [Under Development]
+
+> Inventory Description Script (New):
+- On Click event, item (Name and Description) will be shown on the Description Panel in the inventory
