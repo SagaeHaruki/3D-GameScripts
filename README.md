@@ -59,16 +59,16 @@
 > Stamina System Script:
 - No Changes
 
-> Attacking Script (New):
+> Attacking Script:
 - No Changes
 
-> Chat Bubble Script (New):
+> Chat Bubble Script:
 - No Changes
 
-> NPC Script (New):
+> NPC Script:
 - No Changes
 
-> Player Interaction Script (New):
+> Player Interaction Script:
 - No Changes
 
 > Player Inventory Controller Script (New):
