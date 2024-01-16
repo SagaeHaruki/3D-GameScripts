@@ -22,9 +22,9 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Inventory Desciption Script"
-- Access the item's (Name, Image, Quantity and Description)
-- Which can be shown when clicked
+> What's New?: "Mouse Item Drag"
+- Currently Experimental, might remove it in the future
+- New Inventory System on Development
 
 > IK Script:
 - No Changes
@@ -86,4 +86,4 @@
 - Options when using (RMB) [Under Development]
 
 > Inventory Description Script (New):
-- On Click event, item (Name and Description) will be shown on the Description Panel in the inventory
+- No Changes
