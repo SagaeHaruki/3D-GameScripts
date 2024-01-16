@@ -75,8 +75,7 @@
 - No Changes
 
 > Inventory UI Script (New):
-- Click events added
-- This is to know certain events happening in the inventory
+- No Changes
 
 > Item UI Script (New):
 - Item Select made Possible
