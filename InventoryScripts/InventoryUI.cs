@@ -9,17 +9,22 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private ItemUI itemUI;
     [SerializeField] private RectTransform cPanel;
     [SerializeField] private InventoryDesc itemDescrpt;
+    [SerializeField] private MouseFollower mousefollow; 
 
     List<ItemUI> itemList = new List<ItemUI>();
 
 
-    [SerializeField] public Sprite image;
+    [SerializeField] public Sprite image, image2;
     [SerializeField] public int qtty;
     [SerializeField] public string title, desc;
+
+    private int currentDraggedItem = -1;
+
 
     private void Awake()
     {
         Hide();
+        mousefollow.Toggle(false);
         itemDescrpt.ResetDescription();
     }
 
@@ -39,29 +44,50 @@ public class InventoryUI : MonoBehaviour
         }
     }
     #region Item Actions
-    private void ShowItemAction(ItemUI obj)
+    private void ShowItemAction(ItemUI invItemUI)
     {
-        Debug.Log("Item Actions");
+        
     }
 
-    private void ItemEndDrag(ItemUI obj)
+    private void ItemBeginDrag(ItemUI invItemUI)
     {
-        Debug.Log("Item End Drag");
+        int index = itemList.IndexOf(invItemUI);
+        if (index == -1)
+        {
+            return;
+        }
+
+        currentDraggedItem = index;
+
+        mousefollow.Toggle(true);
+        mousefollow.SetItmData(index == 0 ? image : image2, qtty);
     }
 
-    private void ItemSwap(ItemUI obj)
+    private void ItemEndDrag(ItemUI invItemUI)
     {
-        Debug.Log("Item Swap");
+        mousefollow.Toggle(false);
     }
 
-    private void ItemBeginDrag(ItemUI obj)
+    private void ItemSwap(ItemUI invItemUI)
     {
-        Debug.Log("Item Begin Drag");
+        int index = itemList.IndexOf(invItemUI);
+        if (index == -1)
+        {
+            mousefollow.Toggle(false);
+            currentDraggedItem = -1;
+            return;
+        }
+
+        itemList[currentDraggedItem].SetItemData(index == 0 ? image : image2, qtty);
+        itemList[index].SetItemData(currentDraggedItem == 0 ? image : image2, qtty);
+        mousefollow.Toggle(false);
+        currentDraggedItem = -1;
     }
 
-    private void ItemSelection(ItemUI obj)
+    private void ItemSelection(ItemUI invItemUI)
     {
         itemDescrpt.SetDescription(image, title, desc);
+        itemList[0].SelectItem();
     }
     #endregion
 
@@ -70,6 +96,7 @@ public class InventoryUI : MonoBehaviour
         gameObject.SetActive(true);
         itemDescrpt.ResetDescription();
         itemList[0].SetItemData(image, qtty);
+        itemList[1].SetItemData(image2, qtty);
     }
 
     public void Hide()
