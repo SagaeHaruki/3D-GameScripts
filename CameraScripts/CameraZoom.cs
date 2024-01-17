@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraZoom : MonoBehaviour
 {
     Movement playerMovement;
+    PlayerInvCPL playercpl;
 
     #region Value: Camera Scroll zomm & Camera zoom smoothness
     [SerializeField] private CinemachineFramingTransposer transposer;
@@ -18,7 +19,7 @@ public class CameraZoom : MonoBehaviour
 
     [SerializeField] private float smoothing = 4f;
     [SerializeField] private float zoomSensitivity = 1f;
-    [SerializeField] private bool vcamToggle;
+    [SerializeField] public bool vcamToggle;
 
     private float currentTargetDistance;
 
@@ -27,6 +28,7 @@ public class CameraZoom : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
+        playercpl = GetComponent<PlayerInvCPL>();
         transposer = playerMovement.VirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         pov = playerMovement.VirtualCamera.GetCinemachineComponent<CinemachinePOV>();
 
@@ -38,7 +40,7 @@ public class CameraZoom : MonoBehaviour
     {
         GetKeyInpts();
 
-        if (vcamToggle)
+        if (vcamToggle || !playercpl.isOpenInventory)
         {
             // Default Mouse Sensitivity
             pov.m_VerticalAxis.m_MaxSpeed = mouseY_sens;
@@ -66,9 +68,8 @@ public class CameraZoom : MonoBehaviour
 
     private void GetKeyInpts()
     {
-        if (Input.GetKey(KeyCode.LeftAlt))
+        if (playercpl.isOpenInventory)
         {
-            // Enables the cursor
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
@@ -82,17 +83,34 @@ public class CameraZoom : MonoBehaviour
         }
         else
         {
-            // Disables the cursor
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (Input.GetKey(KeyCode.LeftAlt))
+            {
+                // Enables the cursor
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
 
-            playerMovement.allowAttack = true;
-            playerMovement.canDash = true;
-            vcamToggle = true;
+                playerMovement.allowAttack = false;
+                playerMovement.canDash = false;
+                vcamToggle = false;
 
-            // Toggle Virtual camera
-            pov.m_VerticalAxis.m_MaxSpeed = mouseY_sens;
-            pov.m_HorizontalAxis.m_MaxSpeed = mouseX_sens;
+                // Toggle Virtual Camera
+                pov.m_VerticalAxis.m_MaxSpeed = 0f;
+                pov.m_HorizontalAxis.m_MaxSpeed = 0f;
+            }
+            else
+            {
+                // Disables the cursor
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+
+                playerMovement.allowAttack = true;
+                playerMovement.canDash = true;
+                vcamToggle = true;
+
+                // Toggle Virtual camera
+                pov.m_VerticalAxis.m_MaxSpeed = mouseY_sens;
+                pov.m_HorizontalAxis.m_MaxSpeed = mouseX_sens;
+            }
         }
     }
 }

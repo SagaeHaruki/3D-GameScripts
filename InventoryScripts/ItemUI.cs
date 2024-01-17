@@ -12,7 +12,7 @@ public class ItemUI : MonoBehaviour
     [SerializeField] private TMP_Text quantityTxt;
     [SerializeField] private Image borderImage;
 
-    public event Action<ItemUI> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightMouseButtonClick;
+    public event Action<ItemUI> OnItemClicked, OnRightMouseButtonClick;
 
     private bool empty = true;
 
@@ -20,7 +20,6 @@ public class ItemUI : MonoBehaviour
     {
         ResetItemData();
         DelesectItem();
-
     }
 
     public void ResetItemData()
@@ -37,6 +36,12 @@ public class ItemUI : MonoBehaviour
         empty = false;
     }
 
+    public void ResetData()
+    {
+        itemImage.gameObject.SetActive(false);
+        empty = true;
+    }
+
     public void DelesectItem()
     {
         borderImage.enabled = false;
@@ -47,28 +52,12 @@ public class ItemUI : MonoBehaviour
         borderImage.enabled = true;
     }
 
-    public void OnBeginDrag()
+    public void OnPointerClick(BaseEventData data)
     {
         if (empty)
         {
             return;
         }
-
-        OnItemBeginDrag?.Invoke(this);
-    }
-
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnItemDrop()
-    {
-        OnItemDroppedOn?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
         PointerEventData pointerData = (PointerEventData)data;
         if (pointerData.button == PointerEventData.InputButton.Right)
         {

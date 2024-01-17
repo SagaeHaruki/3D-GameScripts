@@ -9,94 +9,76 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private ItemUI itemUI;
     [SerializeField] private RectTransform cPanel;
     [SerializeField] private InventoryDesc itemDescrpt;
-    [SerializeField] private MouseFollower mousefollow; 
 
     List<ItemUI> itemList = new List<ItemUI>();
-
-
-    [SerializeField] public Sprite image, image2;
-    [SerializeField] public int qtty;
-    [SerializeField] public string title, desc;
-
-    private int currentDraggedItem = -1;
-
+    public event Action<int> OnDescriptionRequested, OnItemActionRequested;
 
     private void Awake()
     {
         Hide();
-        mousefollow.Toggle(false);
         itemDescrpt.ResetDescription();
     }
 
-    public void InitializeInventoryUI(int inventorySize)
+    public void InitializeInventoryUI(int invetorySize)
     {
-        for (int i = 0; i < inventorySize; i++)
+        // Set the maximum size to the stated inventory size
+        for (int i = 0; i < invetorySize; i++)
         {
             ItemUI uiItem = Instantiate(itemUI, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(cPanel);
             itemList.Add(uiItem);
 
-            uiItem.OnItemClicked += ItemSelection;
-            uiItem.OnItemBeginDrag += ItemBeginDrag;
-            uiItem.OnItemDroppedOn += ItemSwap;
-            uiItem.OnItemEndDrag += ItemEndDrag;
-            uiItem.OnRightMouseButtonClick += ShowItemAction;
+            uiItem.OnItemClicked += HandleItemSelection;
         }
     }
-    #region Item Actions
-    private void ShowItemAction(ItemUI invItemUI)
+
+    internal void ResetAllItems()
     {
-        
+        foreach (var item in itemList)
+        {
+            item.ResetData();
+            item.DelesectItem();
+        }
     }
 
-    private void ItemBeginDrag(ItemUI invItemUI)
+    public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
     {
-        int index = itemList.IndexOf(invItemUI);
+        if (itemList.Count > itemIndex)
+        {
+            itemList[itemIndex].SetItemData(itemImage, itemQuantity);
+        }
+    }
+
+    internal void UpdateDescription(int itemIndex, Sprite itemImage, string name, string description)
+    {
+        itemDescrpt.SetDescription(itemImage, name, description);
+        DeselectAllItems();
+        itemList[itemIndex].SelectItem();
+    }
+
+
+    private void HandleItemSelection(ItemUI inventoryItemUI)
+    {
+        int index = itemList.IndexOf(inventoryItemUI);
         if (index == -1)
         {
             return;
         }
-
-        currentDraggedItem = index;
-
-        mousefollow.Toggle(true);
-        mousefollow.SetItmData(index == 0 ? image : image2, qtty);
+        OnDescriptionRequested?.Invoke(index);
     }
 
-    private void ItemEndDrag(ItemUI invItemUI)
+    private void DeselectAllItems()
     {
-        mousefollow.Toggle(false);
-    }
-
-    private void ItemSwap(ItemUI invItemUI)
-    {
-        int index = itemList.IndexOf(invItemUI);
-        if (index == -1)
+        foreach (ItemUI item in itemList)
         {
-            mousefollow.Toggle(false);
-            currentDraggedItem = -1;
-            return;
+            item.DelesectItem();
         }
-
-        itemList[currentDraggedItem].SetItemData(index == 0 ? image : image2, qtty);
-        itemList[index].SetItemData(currentDraggedItem == 0 ? image : image2, qtty);
-        mousefollow.Toggle(false);
-        currentDraggedItem = -1;
     }
-
-    private void ItemSelection(ItemUI invItemUI)
-    {
-        itemDescrpt.SetDescription(image, title, desc);
-        itemList[0].SelectItem();
-    }
-    #endregion
 
     public void Show()
     {
         gameObject.SetActive(true);
         itemDescrpt.ResetDescription();
-        itemList[0].SetItemData(image, qtty);
-        itemList[1].SetItemData(image2, qtty);
     }
 
     public void Hide()
