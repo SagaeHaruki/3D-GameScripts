@@ -87,4 +87,10 @@
 - Unecessary event actions is removed (Keeping everything simple).
 
 > Inventory Description Script:
-- 
+- No Changes
+
+> Inventory Scriptable Object (New):
+- Access the Item Scriptable Oject to add the item in the inventory.
+
+> Item Scriptable Object (New):
+- Allows For more items to be created rather than created by code.
