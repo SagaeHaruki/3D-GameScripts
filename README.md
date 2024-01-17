@@ -22,9 +22,12 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Mouse Item Drag"
-- Currently Experimental, might remove it in the future
-- New Inventory System on Development
+> What's New?: "Scriptabled Objects added"
+- Removed Inventory Mouse Drag.
+- Camera Movement Disabled when inventory is opened.
+- Some Movement are Disabled including attack, when inventory is opened.
+- Scriptable Item Object added.
+- Scriptable Inventory Object added.
 
 > IK Script:
 - No Changes
@@ -54,7 +57,7 @@
 - No Changes
 
 > Camera Zoom Script:
-- No Changes
+- Disables some of the movements when using the inventory
 
 > Stamina System Script:
 - No Changes
@@ -72,17 +75,13 @@
 - No Changes
 
 > Player Inventory Controller Script (New):
-- No Changes
+- 
 
 > Inventory UI Script (New):
-- No Changes
+- 
 
 > Item UI Script (New):
-- Item Select made Possible
-- Item Drag [Under Development]
-- Item Swap [Under Development]
-- Item Deselect [Under Development]
-- Options when using (RMB) [Under Development]
+- 
 
 > Inventory Description Script (New):
-- No Changes
+- 
