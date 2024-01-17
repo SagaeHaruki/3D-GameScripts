@@ -79,7 +79,7 @@
 - This is to disable the Camera when the inventory is opened.
 
 > Inventory UI Script:
-- 
+- Unecessary event actions is removed (Keeping everything simple)
 
 > Item UI Script:
 - 
