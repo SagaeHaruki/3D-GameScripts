@@ -74,14 +74,15 @@
 > Player Interaction Script:
 - No Changes
 
-> Player Inventory Controller Script (New):
+> Player Inventory Controller Script:
+- Added a variable that can be accessed by the Camera Script.
+- This is to disable the Camera when the inventory is opened.
+
+> Inventory UI Script:
 - 
 
-> Inventory UI Script (New):
+> Item UI Script:
 - 
 
-> Item UI Script (New):
-- 
-
-> Inventory Description Script (New):
+> Inventory Description Script:
 - 
