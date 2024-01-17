@@ -57,7 +57,7 @@
 - No Changes
 
 > Camera Zoom Script:
-- Disables some of the movements when using the inventory
+- Disables some of the movements when using the inventory.
 
 > Stamina System Script:
 - No Changes
@@ -79,10 +79,12 @@
 - This is to disable the Camera when the inventory is opened.
 
 > Inventory UI Script:
-- Unecessary event actions is removed (Keeping everything simple)
+- Unecessary event actions is removed (Keeping everything simple).
+- Start Hold, End Hold, Drag is removed.
+- Added 2 new Event Actions such as DescriptionReq and ItemActionReq (Will be done in a few weeks).
 
 > Item UI Script:
-- 
+- Unecessary event actions is removed (Keeping everything simple).
 
 > Inventory Description Script:
 - 
