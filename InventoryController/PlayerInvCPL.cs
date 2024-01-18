@@ -34,7 +34,11 @@ public class PlayerInvCPL : MonoBehaviour
             ItemSO item = inventoryItem.item;
             inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
         }
-        
+    }
+
+    private void HandleItemActionRequest(int itemIndex)
+    {
+
     }
 
     private void Update()

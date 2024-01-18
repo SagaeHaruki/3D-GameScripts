@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private ItemUI itemUI;
     [SerializeField] private RectTransform cPanel;
     [SerializeField] private InventoryDesc itemDescrpt;
+    [SerializeField] private ItemActionPanel itemActionPanel;
 
     List<ItemUI> itemList = new List<ItemUI>();
     public event Action<int> OnDescriptionRequested, OnItemActionRequested;
@@ -73,6 +74,18 @@ public class InventoryUI : MonoBehaviour
         {
             item.DelesectItem();
         }
+        itemActionPanel.Toggle(false);
+    }
+
+    public void AddAction(string actionName, Action performAction)
+    {
+        itemActionPanel.AddButton(actionName, performAction);
+    }
+
+    public void ShowItemActionPanel(int itemindex)
+    {
+        itemActionPanel.Toggle(true);
+        itemActionPanel.transform.position = itemList[itemindex].transform.position;
     }
 
     public void Show()

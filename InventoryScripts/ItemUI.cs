@@ -51,7 +51,6 @@ public class ItemUI : MonoBehaviour
     {
         borderImage.enabled = true;
     }
-
     public void OnPointerClick(BaseEventData data)
     {
         if (empty)
