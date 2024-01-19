@@ -23,4 +23,4 @@
 <h1>Current Changes: [January 14, 2024]</h1>
 
 > What's New?: "Re-Coding / Code Cleanup"
-- Every Code will be redo
+- Every Code will be redo after finishing the inventory system
