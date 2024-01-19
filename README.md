@@ -24,3 +24,4 @@
 
 > What's New?: "Re-Coding / Code Cleanup"
 - Every Code will be redo after finishing the inventory system
+- After that this Repository will be archived
