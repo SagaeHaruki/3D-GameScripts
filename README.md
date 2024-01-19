@@ -22,6 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Scriptabled Objects added"
-- Everything will be re-coded
-- Inventory will be re-coded
+> What's New?: "Re-Coding / Code Cleanup"
+- Every Code will be redo
