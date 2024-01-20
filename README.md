@@ -26,3 +26,4 @@
 - Deleted the Models directory
 - Pick-able items Script
 - Inventory Manager Script
+- Item Slot Arranger
