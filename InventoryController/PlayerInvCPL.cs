@@ -7,58 +7,27 @@ using UnityEngine;
 
 public class PlayerInvCPL : MonoBehaviour
 {
-    [SerializeField] public bool isOpenInventory = false;
-    [SerializeField] private InventoryUI inventoryUI;
-    [SerializeField] private InventorySO inventoryData;
+    [SerializeField] public GameObject InventoryGUI;
+    [SerializeField] public bool onInventory;
 
     private void Awake()
     {
-        PrepareUI();
-    }
-
-    private void PrepareUI()
-    {
-        inventoryUI.InitializeInventoryUI(inventoryData.Size);
-        this.inventoryUI.OnDescriptionRequested += HandleItemSelection;
-    }
-
-    private void HandleItemSelection(int itemIndex)
-    {
-        InventoryItem inventoryItem = inventoryData.GetItemAt(itemIndex);
-        if (inventoryItem.IsEmpty)
-        {
-            return;
-        }
-        else
-        {
-            ItemSO item = inventoryItem.item;
-            inventoryUI.UpdateDescription(itemIndex, item.ItemImage, item.name, item.Description);
-        }
-    }
-
-    private void HandleItemActionRequest(int itemIndex)
-    {
-
+        InventoryGUI.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && !onInventory)
         {
-            if (inventoryUI.isActiveAndEnabled == false)
-            {
-                isOpenInventory = true;
-                inventoryUI.Show();
-                foreach (var item in inventoryData.GetCurrentInventoryState())
-                {
-                    inventoryUI.UpdateData(item.Key, item.Value.item.ItemImage, item.Value.quantity);
-                }
-            }
-            else
-            {
-                isOpenInventory = false;
-                inventoryUI.Hide();
-            }
+            Time.timeScale = 0;
+            InventoryGUI.SetActive(true);
+            onInventory = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.B) && onInventory)
+        {
+            Time.timeScale = 1;
+            InventoryGUI.SetActive(false);
+            onInventory = false;
         }
     }
 }

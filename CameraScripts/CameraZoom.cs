@@ -40,7 +40,7 @@ public class CameraZoom : MonoBehaviour
     {
         GetKeyInpts();
 
-        if (vcamToggle || !playercpl.isOpenInventory)
+        if (vcamToggle || !playercpl.onInventory)
         {
             // Default Mouse Sensitivity
             pov.m_VerticalAxis.m_MaxSpeed = mouseY_sens;
@@ -68,7 +68,7 @@ public class CameraZoom : MonoBehaviour
 
     private void GetKeyInpts()
     {
-        if (playercpl.isOpenInventory)
+        if (playercpl.onInventory)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

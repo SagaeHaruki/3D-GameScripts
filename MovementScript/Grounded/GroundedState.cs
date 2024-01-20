@@ -49,7 +49,7 @@ public class GroundedState : MonoBehaviour
 
     private void SlopeChecker()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 0.5f, playerMovement.layerMasks))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 0.7f, playerMovement.layerMasks))
         {
             Vector3 groundNormal = hit.normal;
             playerMovement.slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
@@ -82,6 +82,12 @@ public class GroundedState : MonoBehaviour
                     playerMovement.goingUp = false;
                 }
                 previousYPosition = currentYPosition;
+            }
+            else
+            {
+                playerMovement.onSlope = false;
+                playerMovement.goingDown = false;
+                playerMovement.goingUp = false;
             }
         }
         else
