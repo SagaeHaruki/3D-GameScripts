@@ -24,3 +24,5 @@
 
 > What's New?: "New Invemtory System"
 - Deleted the Models directory
+- Pick-able items Script
+- 
