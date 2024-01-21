@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemScript : MonoBehaviour
 {
-    [SerializeField] private string ItemName;
+    [SerializeField] public string ItemName;
     [SerializeField] private string ItemDescription;
     [SerializeField] private int ItemQuantity;
-    [SerializeField] private Sprite ItemSprite;
+    [SerializeField] public Sprite ItemSprite;
     private InventoryManager inventoryManager;
 
     private void Awake()
@@ -16,6 +16,11 @@ public class ItemScript : MonoBehaviour
     }
     public void Interact()
     {
+        if (inventoryManager == null)
+        {
+            inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        }
+
         inventoryManager.AddItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
         Destroy(gameObject);
     }
