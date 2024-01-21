@@ -23,7 +23,5 @@
 <h1>Current Changes: [January 14, 2024]</h1>
 
 > What's New?: "New Invemtory System"
-- Deleted the Models directory
-- Pick-able items Script
-- Inventory Manager Script
-- Item Slot Arranger
+- Camera Key Fix
+- 
