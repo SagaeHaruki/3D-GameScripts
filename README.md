@@ -22,6 +22,6 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "New Invemtory System"
+> What's New?: "New Show Pickable Items"
 - Camera Key Fix
-- 
+- Pickable items will show
