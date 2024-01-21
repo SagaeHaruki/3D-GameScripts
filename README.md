@@ -25,3 +25,4 @@
 > What's New?: "New Show Pickable Items"
 - Camera Key Fix
 - Pickable items will show name and image
+- Items can be picked up and added to the inventory
