@@ -24,4 +24,4 @@
 
 > What's New?: "New Show Pickable Items"
 - Camera Key Fix
-- Pickable items will show
+- Pickable items will show name and image
