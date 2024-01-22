@@ -22,5 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "New Show Pickable Items"
+> What's New?: "Nothing new today"
 - Break Today
