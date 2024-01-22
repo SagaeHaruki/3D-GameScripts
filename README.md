@@ -23,6 +23,4 @@
 <h1>Current Changes: [January 14, 2024]</h1>
 
 > What's New?: "New Show Pickable Items"
-- Camera Key Fix
-- Pickable items will show name and image
-- Items can be picked up and added to the inventory
+- Break Today
