@@ -22,6 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Nothing new today"
-- Break Today
-- Some minor fix tomorrow
+> What's New?: "Items are clickable"
+- Left Click function to highlight the item
