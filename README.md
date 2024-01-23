@@ -24,3 +24,4 @@
 
 > What's New?: "Items are clickable"
 - Left Click function to highlight the item
+- Show item description
