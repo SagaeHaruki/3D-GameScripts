@@ -26,3 +26,4 @@
 - Left Click function to highlight the item
 - Show item description
 - Show item name
+- Deselect Item
