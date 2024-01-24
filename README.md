@@ -22,8 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Items are clickable"
-- Left Click function to highlight the item
-- Show item description
-- Show item name
-- Deselect Item
+> What's New?: "Break Today"
+- Home event
