@@ -22,6 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Break Today"
-- Home event
-- Will create usable items next commit
+> What's New?: "Inventory Stacking"
+- 
