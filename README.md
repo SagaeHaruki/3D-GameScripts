@@ -25,3 +25,4 @@
 > What's New?: "Inventory Stacking"
 - Updated a few part of the inventory System.
 - Removed some unecessary codes.
+- Inventory Right click function next
