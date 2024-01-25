@@ -21,7 +21,26 @@ public class ItemScript : MonoBehaviour
             inventoryManager = GameObject.Find("Inventory").GetComponent<InventoryManager>();
         }
 
-        inventoryManager.AddItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
-        Destroy(gameObject);
+        for (int i = 0; i < inventoryManager.itemSlot.Length; i++)
+        {
+            if (inventoryManager.itemSlot[i].ItemName != ItemName)
+            {
+                if (inventoryManager.itemSlot[i].isFull == false)
+                {
+                    print(" i ran this");
+                    inventoryManager.AddItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
+                    Destroy(gameObject);
+                    return;
+                }
+            }
+            else if (inventoryManager.itemSlot[i].ItemName == ItemName)
+            {
+                print(i);
+                inventoryManager.itemSlot[i].UpdateItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
+                Destroy(gameObject);
+                print("Same");
+                return;
+            }
+        }
     }
 }

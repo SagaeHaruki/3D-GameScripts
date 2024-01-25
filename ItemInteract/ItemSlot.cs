@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -34,7 +35,20 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
         isFull = true;
 
-        quantityText.text = quantity.ToString();
+        quantityText.text = ItemQuantity.ToString();
+        quantityText.enabled = true;
+        ImageItem.sprite = ItemSprite;
+        ImageItem.enabled = true;
+    }
+
+    public void UpdateItem(string itemName, string itemDescm, int quantity, Sprite itemSprite)
+    {
+        this.ItemName = itemName;
+        this.ItemDescription = itemDescm;
+        this.ItemQuantity += quantity;
+        this.ItemSprite = itemSprite;
+
+        quantityText.text = this.ItemQuantity.ToString();
         quantityText.enabled = true;
         ImageItem.sprite = ItemSprite;
         ImageItem.enabled = true;
