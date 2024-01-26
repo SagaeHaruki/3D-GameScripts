@@ -23,4 +23,4 @@
 <h1>Current Changes: [January 14, 2024]</h1>
 
 > What's New?: "Another Break today"
-- 
+- Will design a shop system then implement it
