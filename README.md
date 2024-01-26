@@ -22,7 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Inventory Stacking"
-- Updated a few part of the inventory System.
-- Removed some unecessary codes.
-- Inventory Right click function next
+> What's New?: "Another Break today"
+- 
