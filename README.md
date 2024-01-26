@@ -24,3 +24,4 @@
 
 > What's New?: "Another Break today"
 - Will design a shop system then implement it
+- Re-Code will Start Soon, while doing so, i will re-create a new Repository for it
