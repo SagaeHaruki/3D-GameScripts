@@ -25,3 +25,4 @@
 > What's New?: "Will Continue to code on Monday (Jan. 29)"
 - Will design a shop system then implement it
 - Re-Code will Start Soon, while doing so, i will re-create a new Repository for it
+- Add a new function to the inventory
