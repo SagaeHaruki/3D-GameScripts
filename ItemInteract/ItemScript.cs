@@ -27,7 +27,6 @@ public class ItemScript : MonoBehaviour
             {
                 if (inventoryManager.itemSlot[i].isFull == false)
                 {
-                    print(" i ran this");
                     inventoryManager.AddItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
                     Destroy(gameObject);
                     return;
@@ -38,7 +37,6 @@ public class ItemScript : MonoBehaviour
                 print(i);
                 inventoryManager.itemSlot[i].UpdateItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
                 Destroy(gameObject);
-                print("Same");
                 return;
             }
         }

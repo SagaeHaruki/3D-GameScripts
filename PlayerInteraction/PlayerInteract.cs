@@ -7,10 +7,15 @@ using UnityEngine.UI;
 public class PlayerInteract : MonoBehaviour
 {
     Movement playerMovement;
-
+    // Item Interaction
     [SerializeField] private GameObject itmPanel;
     [SerializeField] private TMP_Text itmPickName;
     [SerializeField] private Image itmImage;
+
+    // NPC Interaction
+    [SerializeField] private GameObject npcPanel;
+    [SerializeField] private TMP_Text npcName;
+
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
@@ -71,17 +76,47 @@ public class PlayerInteract : MonoBehaviour
 
     private void PlayerNPCInteraction()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            float interactRange = 2.4f;
+        float interactRange = 2.9f;
 
-            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
-            foreach (Collider collider in colliderArray) 
+        NPC_1 closestNPC = null;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        float closestDistance = float.MaxValue;
+
+        foreach (Collider collider in colliderArray)
+        {
+            if (collider.TryGetComponent(out NPC_1 npcInteract))
             {
-                if(collider.TryGetComponent(out NPC_1 npcInteract))
+                float distance = Vector3.Distance(transform.position, npcInteract.transform.position);
+           
+                if (distance < closestDistance)
                 {
-                    npcInteract.Interact();
+                    closestNPC = npcInteract;
+                    closestDistance = distance;
+                    npcPanel.gameObject.SetActive(true);
+                    npcName.text = npcInteract.NPCName;
+
+                    if (closestNPC.isInteracting)
+                    {
+                        playerMovement.canMove = false;
+                    }
+                    else
+                    {
+                        playerMovement.canMove = true;
+                    }
                 }
+            }
+        }
+
+        if (closestNPC == null)
+        {
+            npcPanel.gameObject.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (closestNPC !=  null)
+            {
+                closestNPC.Interact();
             }
         }
     }
