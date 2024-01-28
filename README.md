@@ -24,4 +24,4 @@
 
 > What's New?: "Added a new feature to the npc"
 - You can add multiple dialogues to the npc
-- 
+- NPC interaction
