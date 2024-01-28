@@ -26,3 +26,4 @@
 - You can add multiple dialogues to the npc
 - NPC interaction
 - Player will stop moving when interacting with npc
+- NPC dialogue box
