@@ -22,7 +22,6 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Will Continue to code on Monday (Jan. 29)"
-- Will design a shop system then implement it
-- Re-Code will Start Soon, while doing so, i will re-create a new Repository for it
-- Add a new function to the inventory
+> What's New?: "Added a new feature to the npc"
+- You can add multiple dialogues to the npc
+- 
