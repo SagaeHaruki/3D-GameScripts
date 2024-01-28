@@ -25,3 +25,4 @@
 > What's New?: "Added a new feature to the npc"
 - You can add multiple dialogues to the npc
 - NPC interaction
+- Player will stop moving when interacting with npc
