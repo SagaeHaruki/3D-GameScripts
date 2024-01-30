@@ -12,6 +12,8 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private CinemachineFramingTransposer transposer;
     [SerializeField] private CinemachinePOV pov;
     [SerializeField] private float defaultDistance = 6.0f;
+    [SerializeField] private float currentDistance;
+    [SerializeField] public float currentTargetDistance;
     [SerializeField] private float minDistance = 1.0f;
     [SerializeField] private float maxDistance = 6.0f;
     [SerializeField] private float mouseX_sens = 1.5f;
@@ -20,8 +22,6 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float smoothing = 4f;
     [SerializeField] private float zoomSensitivity = 1f;
     [SerializeField] public bool vcamToggle;
-
-    private float currentTargetDistance;
 
     #endregion
 
@@ -53,7 +53,7 @@ public class CameraZoom : MonoBehaviour
 
             currentTargetDistance = Mathf.Clamp(currentTargetDistance + zoomValue, minDistance, maxDistance);
 
-            float currentDistance = transposer.m_CameraDistance;
+            currentDistance = transposer.m_CameraDistance;
 
             if (currentDistance == currentTargetDistance)
             {

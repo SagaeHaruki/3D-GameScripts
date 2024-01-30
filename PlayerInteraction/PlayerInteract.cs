@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerInteract : MonoBehaviour
 {
     Movement playerMovement;
+    CameraZoom cameraZoom;
     // Item Interaction
     [SerializeField] private GameObject itmPanel;
     [SerializeField] private TMP_Text itmPickName;
@@ -16,8 +17,11 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private GameObject npcPanel;
     [SerializeField] private TMP_Text npcName;
 
+    private Vector3 originalPos = new Vector3(0, 1.5f, 0);
+
     private void Awake()
     {
+        cameraZoom = GetComponent<CameraZoom>();
         playerMovement = GetComponent<Movement>();
         itmPanel.gameObject.SetActive(false);
     }
@@ -76,6 +80,8 @@ public class PlayerInteract : MonoBehaviour
 
     private void PlayerNPCInteraction()
     {
+        GameObject cameraFocus = GameObject.Find("FollowPoint");
+
         float interactRange = 2.9f;
 
         NPC_1 closestNPC = null;
@@ -98,10 +104,12 @@ public class PlayerInteract : MonoBehaviour
                     if (closestNPC.isInteracting)
                     {
                         playerMovement.canMove = false;
+                        cameraZoom.currentTargetDistance = 2.5f;
                     }
                     else
                     {
                         playerMovement.canMove = true;
+                        cameraZoom.currentTargetDistance = 5.5f;
                     }
                 }
             }

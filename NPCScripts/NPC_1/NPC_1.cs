@@ -12,15 +12,19 @@ public class NPC_1 : MonoBehaviour
     [SerializeField] private string[] NPCDialogues;
     private int currentDialogue = 0;
     public bool isInteracting;
+    private GameObject player;
 
     private void Awake()
     {
         dialogueBox = GameObject.Find("DialogueBox").GetComponent<DialogueBox>();
         animator = GetComponent<Animation>();
-        dialogueBox.npc_Name.text = NPCName;
+        player = GameObject.Find("Player");
+
+        this.dialogueBox.npc_Name.text = NPCName;
+        this.dialogueBox.npc_Profession.text = NPCProfession;
         if(this.NPCDialogues.Length > 0)
         {
-            dialogueBox.npc_Dialogue.text = NPCDialogues[0];
+            this.dialogueBox.npc_Dialogue.text = NPCDialogues[0];
         }
     }
 
@@ -29,8 +33,8 @@ public class NPC_1 : MonoBehaviour
         if (currentDialogue < NPCDialogues.Length - 1)
         {
             currentDialogue++;
-            dialogueBox.npc_Dialogue.text = NPCDialogues[currentDialogue];
-            dialogueBox.Interacted();
+            this.dialogueBox.npc_Dialogue.text = NPCDialogues[currentDialogue];
+            dialogueBox.Interacted(NPCName, NPCProfession);
             isInteracting = true;
         }
         else if (currentDialogue == NPCDialogues.Length - 1)
@@ -38,6 +42,24 @@ public class NPC_1 : MonoBehaviour
             dialogueBox.CloseInteract();
             currentDialogue = 0;
             isInteracting = false;
+        }
+    }
+
+    public void Update()
+    {
+        if (isInteracting)
+        {
+            Vector3 direction = player.transform.position - transform.position;
+            direction.y = 0;
+            Quaternion targetRot = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 direction = new Vector3(120f, 0f, 0f);
+            direction.y = 0;
+            Quaternion targetRot = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
         }
     }
 }
