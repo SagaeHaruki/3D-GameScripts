@@ -26,3 +26,4 @@
 - The NPC will rotate based on the character's Position.
 - Smoothen the NPC rotation.
 - Camera will zoom when interacting with the NPC.
+- Trying to fix pickable items script, (Some have errors when trying to get the ItemSlot Script GameObject)
