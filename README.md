@@ -22,8 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "Added a new feature to the npc"
-- You can add multiple dialogues to the npc
-- NPC interaction
-- Player will stop moving when interacting with npc
-- NPC dialogue box
+> What's New?: "NPC Rotation when interacting with player"
+- The NPC will rotate based on the character's Position 
