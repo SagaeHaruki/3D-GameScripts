@@ -23,5 +23,6 @@
 <h1>Current Changes: [January 14, 2024]</h1>
 
 > What's New?: "NPC Rotation when interacting with player"
-- The NPC will rotate based on the character's Position
-- Smoothen the NPC rotation
+- The NPC will rotate based on the character's Position.
+- Smoothen the NPC rotation.
+- Camera will zoom when interacting with the NPC.
