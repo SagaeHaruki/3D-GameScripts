@@ -22,8 +22,5 @@
 
 <h1>Current Changes: [January 14, 2024]</h1>
 
-> What's New?: "NPC Rotation when interacting with player"
-- The NPC will rotate based on the character's Position.
-- Smoothen the NPC rotation.
-- Camera will zoom when interacting with the NPC.
-- Trying to fix pickable items script, (Some have errors when trying to get the ItemSlot Script GameObject)
+> What's New?: "Break Today"
+- Continue Coding Tomorrow
