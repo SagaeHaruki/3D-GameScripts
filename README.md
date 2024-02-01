@@ -21,5 +21,6 @@
 - Enemy Attack & Player Detection Script.
 
 <h1>Current Changes: [February 1, 2024]</h1>
-> What's New?: "Break Today"
-- Continue Coding Tomorrow
+> What's New?: "Code Schedule"
+- [02-02-24 to 02-03-24] > Code Cleanup
+- [02-04-24] Break
