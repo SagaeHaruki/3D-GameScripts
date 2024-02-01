@@ -20,7 +20,6 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [January 14, 2024]</h1>
-
+<h1>Current Changes: [February 1, 2024]</h1>
 > What's New?: "Break Today"
 - Continue Coding Tomorrow
