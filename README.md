@@ -20,8 +20,7 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 1, 2024]</h1>
-> What's New?: "Code Schedule"
-- [02-02-24 to 02-03-24] > Code Cleanup
-- [02-04-24] Break
-- Changes will be uploaded tomorrow as i am having problems with the internet
+<h1>Current Changes: [February 2, 2024]</h1>
+> What's New?: "Disabled some movements when interacting"
+- Player can't move when using the inventory, but will not pause the game
+- Player can't move when interacting with the npc
