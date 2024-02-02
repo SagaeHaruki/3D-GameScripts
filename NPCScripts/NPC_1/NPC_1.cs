@@ -10,6 +10,8 @@ public class NPC_1 : MonoBehaviour
     [SerializeField] public string NPCName;
     [SerializeField] public string NPCProfession;
     [SerializeField] private string[] NPCDialogues;
+    [SerializeField] Vector3 NewFacingDirection = new Vector3();
+
     private int currentDialogue = 0;
     public bool isInteracting;
     private GameObject player;
@@ -54,12 +56,12 @@ public class NPC_1 : MonoBehaviour
             Quaternion targetRot = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
         }
-        else
+        else if(!isInteracting)
         {
-            Vector3 direction = new Vector3(120f, 0f, 0f);
-            direction.y = 0;
-            Quaternion targetRot = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
+            NewFacingDirection.x = 0;
+            NewFacingDirection.z = 0;
+            Quaternion targetRotation = Quaternion.Euler(NewFacingDirection);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 2.5f * Time.deltaTime);
         }
     }
 }

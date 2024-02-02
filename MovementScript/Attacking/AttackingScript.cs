@@ -30,7 +30,7 @@ public class AttackingScript : MonoBehaviour
 
     private void PressAttackState()
     {
-        if (playerMovement.allowAttack)
+        if (playerMovement.canAttack)
         {
             if (!playerMovement.isInteracting)
             {

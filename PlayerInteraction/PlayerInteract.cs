@@ -8,6 +8,8 @@ public class PlayerInteract : MonoBehaviour
 {
     Movement playerMovement;
     CameraZoom cameraZoom;
+    DialogueBox dialogueBox;
+
     // Item Interaction
     [SerializeField] private GameObject itmPanel;
     [SerializeField] private TMP_Text itmPickName;
@@ -82,7 +84,7 @@ public class PlayerInteract : MonoBehaviour
     {
         GameObject cameraFocus = GameObject.Find("FollowPoint");
 
-        float interactRange = 2.9f;
+        float interactRange = 1.7f;
 
         NPC_1 closestNPC = null;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
@@ -103,12 +105,17 @@ public class PlayerInteract : MonoBehaviour
 
                     if (closestNPC.isInteracting)
                     {
-                        playerMovement.canMove = false;
+                        playerMovement.isInteracting = true;
                         cameraZoom.currentTargetDistance = 2.5f;
+
+                        Vector3 direction = closestNPC.transform.position - transform.position;
+                        direction.y = 0;
+                        Quaternion targetRot = Quaternion.LookRotation(direction);
+                        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
                     }
-                    else
+                    else if (!closestNPC.isInteracting)
                     {
-                        playerMovement.canMove = true;
+                        playerMovement.isInteracting = false;
                         cameraZoom.currentTargetDistance = 5.5f;
                     }
                 }

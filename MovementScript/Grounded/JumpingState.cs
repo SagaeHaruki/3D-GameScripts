@@ -8,12 +8,11 @@ public class JumpingState : MonoBehaviour
 
     [SerializeField] private float jumpCooldown = 1f;
     [SerializeField] private float lastJumpTime;
-    [SerializeField] private bool canJump = true;
 
     private void Awake()
     {
         playerMovement = GetComponent<Movement>();
-
+        playerMovement.canJump = true;
         lastJumpTime = -jumpCooldown;
     }
 
@@ -30,53 +29,68 @@ public class JumpingState : MonoBehaviour
 
     private void NormalJumping()
     {
-        if (!playerMovement.isAttacking)
+        if (!playerMovement.isInteracting)
         {
-            if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && canJump && !playerMovement.isSwimming)
+            if (!playerMovement.onInventory)
             {
-                if (playerMovement.isGrounded)
+                if (!playerMovement.isAttacking)
                 {
-                    if (playerMovement.isMoving)
+                    if (Input.GetKeyDown(KeyCode.Space) && !playerMovement.isJumping && playerMovement.canJump && !playerMovement.isSwimming)
                     {
-                        if (playerMovement.isRunning || playerMovement.isSprinting)
+                        if (playerMovement.isGrounded)
                         {
-                            playerMovement.isJumping = true;
-                            playerMovement.Velocity.y = playerMovement.jumpForce;
-                        }
+                            if (playerMovement.isMoving)
+                            {
+                                if (playerMovement.isRunning || playerMovement.isSprinting)
+                                {
+                                    playerMovement.isJumping = true;
+                                    playerMovement.Velocity.y = playerMovement.jumpForce;
+                                }
 
-                        if (playerMovement.isWalking)
-                        {
-                            playerMovement.isJumping = true;
-                            playerMovement.Velocity.y = playerMovement.jumpForce;
+                                if (playerMovement.isWalking)
+                                {
+                                    playerMovement.isJumping = true;
+                                    playerMovement.Velocity.y = playerMovement.jumpForce;
+                                }
+                            }
+
+                            if (!playerMovement.isMoving)
+                            {
+                                playerMovement.isJumping = true;
+                                playerMovement.Velocity.y = playerMovement.jumpForce;
+                            }
+
+                            lastJumpTime = Time.time;
+                            playerMovement.canJump = false;
                         }
                     }
-
-                    if (!playerMovement.isMoving)
+                    else if (playerMovement.charControl.isGrounded)
                     {
-                        playerMovement.isJumping = true;
-                        playerMovement.Velocity.y = playerMovement.jumpForce;
+                        playerMovement.isJumping = false;
                     }
-
-                    lastJumpTime = Time.time;
-                    canJump = false;
+                    else if (playerMovement.isSwimming)
+                    {
+                        playerMovement.isJumping = false;
+                    }
                 }
             }
-            else if (playerMovement.charControl.isGrounded)
+            else if (playerMovement.charControl.isGrounded && playerMovement.isJumping)
             {
                 playerMovement.isJumping = false;
+                return;
             }
-            else if (playerMovement.isSwimming)
-            {
-                playerMovement.isJumping = false;
-            }
+        }
+        else if (playerMovement.charControl.isGrounded && playerMovement.isJumping)
+        {
+            playerMovement.isJumping = false;
         }
     }
 
     private void JumpCooldown()
     {
-        if (!canJump && Time.time - lastJumpTime > jumpCooldown)
+        if (!playerMovement.canJump && Time.time - lastJumpTime > jumpCooldown)
         {
-            canJump = true;
+            playerMovement.canJump = true;
             lastJumpTime = 0f;
         }
     }

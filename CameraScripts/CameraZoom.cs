@@ -40,7 +40,7 @@ public class CameraZoom : MonoBehaviour
     {
         GetKeyInpts();
 
-        if (vcamToggle && !playercpl.onInventory)
+        if (vcamToggle && !playerMovement.onInventory)
         {
             // Default Mouse Sensitivity
             pov.m_VerticalAxis.m_MaxSpeed = mouseY_sens;
@@ -68,12 +68,12 @@ public class CameraZoom : MonoBehaviour
 
     private void GetKeyInpts()
     {
-        if (playercpl.onInventory)
+        if (playerMovement.onInventory)
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
-            playerMovement.allowAttack = false;
+            playerMovement.canAttack = false;
             playerMovement.canDash = false;
             vcamToggle = false;
 
@@ -89,7 +89,7 @@ public class CameraZoom : MonoBehaviour
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
 
-                playerMovement.allowAttack = false;
+                playerMovement.canAttack = false;
                 playerMovement.canDash = false;
                 vcamToggle = false;
 
@@ -103,7 +103,7 @@ public class CameraZoom : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
 
-                playerMovement.allowAttack = true;
+                playerMovement.canAttack = true;
                 playerMovement.canDash = true;
                 vcamToggle = true;
 

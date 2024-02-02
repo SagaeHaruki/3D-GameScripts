@@ -32,28 +32,31 @@ public class MovementChange : MonoBehaviour
 
     private void SprintingKey()
     {
-        if (!playerMovement.isAttacking)
+        if (!playerMovement.isInteracting)
         {
-            if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && playerMovement.canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
+            if (!playerMovement.isAttacking)
             {
-                if (playerMovement.isGrounded)
+                if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && playerMovement.canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
                 {
-                    playerMovement.currentStamina -= playerMovement.DecreaseRate;
-                    playerMovement.isDashing = true;
-                    playerMovement.isSprinting = false;
-                    Vector3 dashDirection = transform.forward * dashDistance;
-                    StartCoroutine(Dash(dashDirection));
-                    StartCoroutine(DashCooldown());
+                    if (playerMovement.isGrounded)
+                    {
+                        playerMovement.currentStamina -= playerMovement.DecreaseRate;
+                        playerMovement.isDashing = true;
+                        playerMovement.isSprinting = false;
+                        Vector3 dashDirection = transform.forward * dashDistance;
+                        StartCoroutine(Dash(dashDirection));
+                        StartCoroutine(DashCooldown());
+                    }
                 }
-            }
 
-            if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
-            {
-                playerMovement.isSprinting = true;
-            }
-            else if (!playerMovement.isMoving && playerMovement.isSprinting)
-            {
-                playerMovement.isSprinting = false;
+                if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
+                {
+                    playerMovement.isSprinting = true;
+                }
+                else if (!playerMovement.isMoving && playerMovement.isSprinting)
+                {
+                    playerMovement.isSprinting = false;
+                }
             }
         }
 
@@ -107,11 +110,11 @@ public class MovementChange : MonoBehaviour
     {
         if (playerMovement.isSwimming)
         {
-            playerMovement.allowAttack = false;
+            playerMovement.canAttack = false;
         }
         else if (!playerMovement.isSwimming)
         {
-            playerMovement.allowAttack = true;
+            playerMovement.canAttack = true;
         }
 
         if (!playerMovement.isJumping)
@@ -120,11 +123,11 @@ public class MovementChange : MonoBehaviour
             {
                 if (playerMovement.isFalling)
                 {
-                    playerMovement.allowAttack = false;
+                    playerMovement.canAttack = false;
                 }
                 else if (!playerMovement.isFalling)
                 {
-                    playerMovement.allowAttack = true;
+                    playerMovement.canAttack = true;
                 }
             }
         }
@@ -133,11 +136,11 @@ public class MovementChange : MonoBehaviour
         {
             if (playerMovement.isJumping)
             {
-                playerMovement.allowAttack = false;
+                playerMovement.canAttack = false;
             }
             else if (!playerMovement.isJumping)
             {
-                playerMovement.allowAttack = true;
+                playerMovement.canAttack = true;
             }
         }
     }

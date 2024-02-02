@@ -34,7 +34,6 @@ public class ItemScript : MonoBehaviour
             }
             else if (inventoryManager.itemSlot[i].ItemName == ItemName)
             {
-                print(i);
                 inventoryManager.itemSlot[i].UpdateItem(ItemName, ItemDescription, ItemQuantity, ItemSprite);
                 Destroy(gameObject);
                 return;

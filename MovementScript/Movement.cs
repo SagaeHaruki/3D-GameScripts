@@ -72,7 +72,6 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool isAttacking;
 
     // Attacking State
-    [SerializeField] public bool allowAttack;
     [SerializeField] public string attackType;
 
     // On Water States
@@ -87,11 +86,16 @@ public class Movement : MonoBehaviour
     [SerializeField] public bool goingUp;
     [SerializeField] public bool goingDown;
 
+    // Others
+    [SerializeField] public bool onInventory;
+
     // Can State
     [SerializeField] public bool canSwim;
     [SerializeField] public bool canSprint;
     [SerializeField] public bool canDash;
     [SerializeField] public bool canMove;
+    [SerializeField] public bool canJump;
+    [SerializeField] public bool canAttack;
     #endregion
 
     #region Stamina & Oxygen System
@@ -163,6 +167,16 @@ public class Movement : MonoBehaviour
                         }
                     }
                 }
+                else
+                {
+                    isMoving = false;
+                    return;
+                }
+            }
+            else
+            {
+                isMoving = false;
+                return;
             }
         }
         else
