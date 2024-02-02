@@ -22,6 +22,7 @@
 
 <h1>Current Changes: [February 2, 2024]</h1>
 > What's New?: "Disabled some movements when interacting"
+
 - Player can't move when using the inventory, but will not pause the game
 - Player can't move when interacting with the npc
 - Player will now look when interacting with the npc
