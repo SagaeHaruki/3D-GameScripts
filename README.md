@@ -20,10 +20,7 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 2, 2024]</h1>
-> What's New?: "Disabled some movements when interacting"
+<h1>Current Changes: [February 3, 2024]</h1>
+> What's New?: "Break Today"
 
-- Player can't move (Including Dash & Jumping), when using the inventory, but will not pause the game.
-- Player can't move (Including Dash & Jumping), when interacting with the npc.
-- Player will now look when interacting with the npc.
-- New Item Prefabs.
+- Out of town today, Continue Coding tomorrow
