@@ -24,3 +24,4 @@
 > What's New?: "Break Today"
 
 - Out of town today, Continue Coding tomorrow
+- Have something in mind already, continue tomorrow
