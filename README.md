@@ -25,3 +25,4 @@
 
 - Out of town today, Continue Coding tomorrow
 - Have something in mind already, continue tomorrow
+- Some bugs will be fixed after short vacation
