@@ -25,4 +25,4 @@
 > What's New?: "Aiming When Interacting Enemies"
 
 - Temporarily using npc as the opponent, in order to check if the aiming is good and smooth
-- Re-Adjust the interaction distance between player and npc
+- Re-Adjust the interaction distance between player and npc. (Some Minor Glitches appeared)
