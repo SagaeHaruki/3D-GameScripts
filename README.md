@@ -21,6 +21,8 @@
 - Enemy Attack & Player Detection Script.
 
 <h1>Current Changes: [February 4, 2024]</h1>
+
 > What's New?: "Aiming When Interacting Enemies"
 
 - Temporarily using npc as the opponent, in order to check if the aiming is good and smooth
+- Re-Adjust the interaction distance between player and npc
