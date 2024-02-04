@@ -20,9 +20,7 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 3, 2024]</h1>
-> What's New?: "Break Today"
+<h1>Current Changes: [February 4, 2024]</h1>
+> What's New?: "Aiming When Interacting Enemies"
 
-- Out of town today, Continue Coding tomorrow
-- Have something in mind already, continue tomorrow
-- Some bugs will be fixed after short vacation
+- Temporarily using npc as the opponent, in order to check if the aiming is good and smooth
