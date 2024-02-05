@@ -20,9 +20,8 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 4, 2024]</h1>
+<h1>Current Changes: [February 5, 2024]</h1>
 
-> What's New?: "Aiming When Interacting Enemies"
+> What's New?: "Minor Fixes"
 
-- Temporarily using npc as the opponent, in order to check if the aiming is good and smooth
-- Re-Adjust the interaction distance between player and npc. (Some Minor Glitches appeared)
+- Minor Fixes
