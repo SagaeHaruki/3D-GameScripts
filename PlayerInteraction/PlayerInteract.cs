@@ -25,6 +25,7 @@ public class PlayerInteract : MonoBehaviour
     {
         cameraZoom = GetComponent<CameraZoom>();
         playerMovement = GetComponent<Movement>();
+        dialogueBox = GameObject.Find("DialogueBox").GetComponent<DialogueBox>();
         itmPanel.gameObject.SetActive(false);
     }
 
@@ -47,92 +48,105 @@ public class PlayerInteract : MonoBehaviour
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
         float closestDistance = float.MaxValue;
 
-        foreach (Collider collider in colliderArray)
+        if (!playerMovement.onInventory)
         {
-            if (collider.TryGetComponent(out ItemScript itmScript))
+            foreach (Collider collider in colliderArray)
             {
-                // Calculate the distance between the player and the current item
-                float distance = Vector3.Distance(transform.position, itmScript.transform.position);
-
-                // Check if the current item is closer than the previously found closest item
-                if (distance < closestDistance)
+                if (collider.TryGetComponent(out ItemScript itmScript))
                 {
-                    closestItem = itmScript;
-                    closestDistance = distance;
-                    itmPanel.gameObject.SetActive(true);
-                    itmPickName.text = closestItem.ItemName;
-                    itmImage.sprite = closestItem.ItemSprite;
+                    // Calculate the distance between the player and the current item
+                    float distance = Vector3.Distance(transform.position, itmScript.transform.position);
+
+                    // Check if the current item is closer than the previously found closest item
+                    if (distance < closestDistance)
+                    {
+                        closestItem = itmScript;
+                        closestDistance = distance;
+                        itmPanel.gameObject.SetActive(true);
+                        itmPickName.text = closestItem.ItemName;
+                        itmImage.sprite = closestItem.ItemSprite;
+                    }
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (closestItem != null)
+                {
+                    closestItem.Interact();
+                }
+            }
+
+        }
+        else
+        {
+            itmPanel.gameObject.SetActive(false);
         }
 
         if (closestItem == null)
         {
             itmPanel.gameObject.SetActive(false);
         }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (closestItem != null)
-            {
-                closestItem.Interact();
-            }
-        }
     }
 
     private void PlayerNPCInteraction()
     {
-        GameObject cameraFocus = GameObject.Find("FollowPoint");
-
-        float interactRange = 1.7f;
+        float interactRange = 2.2f;
 
         NPC_1 closestNPC = null;
         Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
         float closestDistance = float.MaxValue;
 
-        foreach (Collider collider in colliderArray)
+        if (!playerMovement.onInventory)
         {
-            if (collider.TryGetComponent(out NPC_1 npcInteract))
+            foreach (Collider collider in colliderArray)
             {
-                float distance = Vector3.Distance(transform.position, npcInteract.transform.position);
-           
-                if (distance < closestDistance)
+                if (collider.TryGetComponent(out NPC_1 npcInteract))
                 {
-                    closestNPC = npcInteract;
-                    closestDistance = distance;
-                    npcPanel.gameObject.SetActive(true);
-                    npcName.text = npcInteract.NPCName;
+                    float distance = Vector3.Distance(transform.position, npcInteract.transform.position);
 
-                    if (closestNPC.isInteracting)
+                    if (distance < closestDistance)
                     {
-                        playerMovement.isInteracting = true;
-                        cameraZoom.currentTargetDistance = 2.5f;
+                        closestNPC = npcInteract;
+                        closestDistance = distance;
+                        npcPanel.gameObject.SetActive(true);
+                        npcName.text = npcInteract.NPCName;
 
-                        Vector3 direction = closestNPC.transform.position - transform.position;
-                        direction.y = 0;
-                        Quaternion targetRot = Quaternion.LookRotation(direction);
-                        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
-                    }
-                    else if (!closestNPC.isInteracting)
-                    {
-                        playerMovement.isInteracting = false;
-                        cameraZoom.currentTargetDistance = 5.5f;
+                        if (closestNPC.isInteracting)
+                        {
+                            playerMovement.isInteracting = true;
+                            cameraZoom.currentTargetDistance = 2.5f;
+
+                            Vector3 direction = closestNPC.transform.position - transform.position;
+                            direction.y = 0;
+                            Quaternion targetRot = Quaternion.LookRotation(direction);
+                            transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2.5f * Time.deltaTime);
+                        }
+                        else if (!closestNPC.isInteracting)
+                        {
+                            playerMovement.isInteracting = false;
+                            cameraZoom.currentTargetDistance = 5.5f;
+                        }
                     }
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                if (closestNPC !=  null)
+                {
+                    closestNPC.Interact();
+                }
+            }
+        }
+        else
+        {
+            npcPanel.gameObject.SetActive(false);
         }
 
         if (closestNPC == null)
         {
             npcPanel.gameObject.SetActive(false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            if (closestNPC !=  null)
-            {
-                closestNPC.Interact();
-            }
         }
     }
 }

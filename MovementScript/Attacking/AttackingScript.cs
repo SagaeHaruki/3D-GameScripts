@@ -26,6 +26,34 @@ public class AttackingScript : MonoBehaviour
 
         PressAttackState();
         ResetAttacking();
+
+        if (playerMovement.isAttacking)
+        {
+            float interactRange = 2.2f;
+
+            NPC_1 closestNPC = null;
+            Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+            float closestDistance = float.MaxValue;
+
+            foreach (Collider collider in colliderArray)
+            {
+                if (collider.TryGetComponent(out NPC_1 npcInteract))
+                {
+                    float distance = Vector3.Distance(transform.position, npcInteract.transform.position);
+
+                    if (distance < closestDistance)
+                    {
+                        closestNPC = npcInteract;
+                        closestDistance = distance;
+
+                        Vector3 direction = closestNPC.transform.position - transform.position;
+                        direction.y = 0;
+                        Quaternion targetRot = Quaternion.LookRotation(direction);
+                        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 15f * Time.deltaTime);
+                    }
+                }
+            }
+        }
     }
 
     private void PressAttackState()

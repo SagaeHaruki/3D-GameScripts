@@ -21,15 +21,18 @@ public class PlayerInvCPL : MonoBehaviour
     {
         Updater();
 
-        if (Input.GetKeyDown(KeyCode.B) && !playerMovement.onInventory)
+        if (!playerMovement.isInteracting)
         {
-            InventoryGUI.SetActive(true);
-            playerMovement.onInventory = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.B) && playerMovement.onInventory)
-        {
-            InventoryGUI.SetActive(false);
-            playerMovement.onInventory = false;
+            if (Input.GetKeyDown(KeyCode.B) && !playerMovement.onInventory)
+            {
+                InventoryGUI.SetActive(true);
+                playerMovement.onInventory = true;
+            }
+            else if (Input.GetKeyDown(KeyCode.B) && playerMovement.onInventory)
+            {
+                InventoryGUI.SetActive(false);
+                playerMovement.onInventory = false;
+            }
         }
     }
 
