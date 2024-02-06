@@ -25,3 +25,4 @@
 > What's New?: "Movement & IK Adjustments"
 
 - Some Adjustments to movement script
+- Adjustments to the IK Script
