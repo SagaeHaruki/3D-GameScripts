@@ -26,3 +26,4 @@
 
 - Some Adjustments to movement script
 - Adjustments to the IK Script
+- Disabled Some Movements on Some Scripts
