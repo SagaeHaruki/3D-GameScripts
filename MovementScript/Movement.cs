@@ -155,6 +155,10 @@ public class Movement : MonoBehaviour
                                     Vector3 newDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                                     charControl.Move(newDirection.normalized * newSpeed * Time.deltaTime);
                                 }
+                                else
+                                {
+                                    isMoving = false;
+                                }
                             }
 
                             if (isJumping && isSprinting)

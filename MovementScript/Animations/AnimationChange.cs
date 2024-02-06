@@ -156,17 +156,20 @@ public class AnimationChange : MonoBehaviour
                     }
                 }
 
-                // Player Swimming
-                if (playerMovement.isSwimming)
+                if (playerMovement.canSwim)
                 {
-                    playerMovement.animator.SetBool("isWalking", false);
-                    playerMovement.animator.SetBool("isRunning", false);
-                    playerMovement.animator.SetBool("isSprinting", false);
-                    playerMovement.animator.SetBool("isJumping", false);
-                    playerMovement.animator.SetBool("isFalling", false);
-                    playerMovement.animator.SetBool("isDashing", false);
-                    playerMovement.animator.SetBool("isSwimming", true);
-                    playerMovement.animator.SetBool("isSwimIdle", false);
+                    // Player Swimming
+                    if (playerMovement.isSwimming)
+                    {
+                        playerMovement.animator.SetBool("isWalking", false);
+                        playerMovement.animator.SetBool("isRunning", false);
+                        playerMovement.animator.SetBool("isSprinting", false);
+                        playerMovement.animator.SetBool("isJumping", false);
+                        playerMovement.animator.SetBool("isFalling", false);
+                        playerMovement.animator.SetBool("isDashing", false);
+                        playerMovement.animator.SetBool("isSwimming", true);
+                        playerMovement.animator.SetBool("isSwimIdle", false);
+                    }
                 }
             }
 

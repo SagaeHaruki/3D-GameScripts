@@ -55,6 +55,7 @@ public class IKSystem : MonoBehaviour
     {
         ChangeState();
         GetSlopeAngle();
+        ChangePelvisOffset();
     }
 
     private void GetSlopeAngle()
@@ -67,6 +68,21 @@ public class IKSystem : MonoBehaviour
         }
     }
 
+    private void ChangePelvisOffset()
+    {
+        if (playerMovement.goingUp)
+        {
+            pelvisLowerOffset = 0.02f;
+        }
+        else if (playerMovement.goingDown)
+        {
+            pelvisLowerOffset = 0.05f;
+        }
+        else
+        {
+            pelvisLowerOffset = 0.05f;
+        }
+    }
 
     private void ChangeState()
     {
@@ -97,7 +113,7 @@ public class IKSystem : MonoBehaviour
                 heightFromGround = 0.47f;
                 raycastDownDistance = 0.47f;
             }
-            else if(playerMovement.isJumping || !playerMovement.charControl.isGrounded)
+            else if (playerMovement.isJumping || !playerMovement.charControl.isGrounded)
             {
                 heightFromGround = 0.0f;
                 raycastDownDistance = 0.0f;

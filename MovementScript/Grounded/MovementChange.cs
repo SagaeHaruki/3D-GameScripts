@@ -9,7 +9,7 @@ public class MovementChange : MonoBehaviour
     // Dash Movement
     [SerializeField] private float dashDistance = 1.2f;
     [SerializeField] private float dashDuration = 0.2f;
-    [SerializeField] private float dashCooldown = 1.2f;
+    [SerializeField] private float dashCooldown = 1.6f;
     [SerializeField] private float dashTime;
 
     private void Awake()
@@ -36,26 +36,29 @@ public class MovementChange : MonoBehaviour
         {
             if (!playerMovement.isAttacking)
             {
-                if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && playerMovement.canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
+                if (!playerMovement.isSwimming)
                 {
-                    if (playerMovement.isGrounded)
+                    if (Input.GetKeyDown(KeyCode.LeftShift) && !playerMovement.isJumping && playerMovement.canDash && !playerMovement.isSwimming && playerMovement.currentStamina >= 15)
                     {
-                        playerMovement.currentStamina -= playerMovement.DecreaseRate;
-                        playerMovement.isDashing = true;
-                        playerMovement.isSprinting = false;
-                        Vector3 dashDirection = transform.forward * dashDistance;
-                        StartCoroutine(Dash(dashDirection));
-                        StartCoroutine(DashCooldown());
+                        if (playerMovement.isGrounded)
+                        {
+                            playerMovement.currentStamina -= playerMovement.DecreaseRate;
+                            playerMovement.isDashing = true;
+                            playerMovement.isSprinting = false;
+                            Vector3 dashDirection = transform.forward * dashDistance;
+                            StartCoroutine(Dash(dashDirection));
+                            StartCoroutine(DashCooldown());
+                        }
                     }
-                }
 
-                if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
-                {
-                    playerMovement.isSprinting = true;
-                }
-                else if (!playerMovement.isMoving && playerMovement.isSprinting)
-                {
-                    playerMovement.isSprinting = false;
+                    if (Input.GetKey(KeyCode.LeftShift) && playerMovement.isDashing && playerMovement.isMoving)
+                    {
+                        playerMovement.isSprinting = true;
+                    }
+                    else if (!playerMovement.isMoving && playerMovement.isSprinting)
+                    {
+                        playerMovement.isSprinting = false;
+                    }
                 }
             }
         }
@@ -63,7 +66,7 @@ public class MovementChange : MonoBehaviour
         if (playerMovement.isDashing)
         {
             dashTime += Time.deltaTime;
-            if (dashTime >= 0.5f)
+            if (dashTime >= 0.3f)
             {
                 playerMovement.isDashing = false;
                 dashTime = 0f;
