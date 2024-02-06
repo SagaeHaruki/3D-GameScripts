@@ -24,5 +24,4 @@
 
 > What's New?: "Minor Fixes"
 
-- Minor Fixes
-- Some Actions cannot start while interacting. (Mainly when interacting with npc, the player cannot open the inventory)
+- Some Adjustments to movement script
