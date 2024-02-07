@@ -24,4 +24,4 @@
 
 > What's New?: "Break Today"
 
-- 
+- There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project
