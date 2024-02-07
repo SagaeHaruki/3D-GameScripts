@@ -22,8 +22,6 @@
 
 <h1>Current Changes: [February 6, 2024]</h1>
 
-> What's New?: "Movement & IK Adjustments"
+> What's New?: "Break Today"
 
-- Some Adjustments to movement script
-- Adjustments to the IK Script
-- Disabled Some Movements on Some Scripts
+- 
