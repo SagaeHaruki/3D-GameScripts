@@ -30,6 +30,14 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public void ResetItemDesc()
+    {
+        itemImage.sprite = null;
+        itemImage.enabled = false;
+        itemName.text = null;
+        itemDescription.text = null;
+    }
+
     public void DeselectAllSlots()
     {
         for(int i = 0;i < itemSlot.Length; i++) 
