@@ -20,8 +20,10 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 7, 2024]</h1>
+<h1>Current Changes: [February 10, 2024]</h1>
 
-> What's New?: "Break Today"
+> What's New?: ""
 
-- There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project, this is also for myself to prepare for the re-designing and coding of most of the stuffs as we officialy start this "IT Special Project"
+- Reset the item description
+
+[NOTE!] There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project, this is also for myself to prepare for the re-designing and coding of most of the stuffs as we officialy start this "IT Special Project"
