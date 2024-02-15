@@ -24,6 +24,7 @@
 
 > What's New?: "Head Turning"
 
-- The Character will turn its head on a limited angle, if there is a nearby npc
+- The Character will turn its head on a limited angle, if there is a nearby npc.
+- The Enemies will not be having any of the game object used for the head turning
 
 [NOTE!] There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project, this is also for myself to prepare for the re-designing and coding of most of the stuffs as we officialy start this "IT Special Project"
