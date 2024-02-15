@@ -14,7 +14,7 @@ public class CameraZoom : MonoBehaviour
     [SerializeField] private float defaultDistance = 6.0f;
     [SerializeField] private float currentDistance;
     [SerializeField] public float currentTargetDistance;
-    [SerializeField] private float minDistance = 1.0f;
+    [SerializeField] private float minDistance = 1.5f;
     [SerializeField] private float maxDistance = 6.0f;
     [SerializeField] private float mouseX_sens = 1.5f;
     [SerializeField] private float mouseY_sens = 1.5f;

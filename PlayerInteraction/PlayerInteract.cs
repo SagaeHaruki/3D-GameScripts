@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,8 @@ public class PlayerInteract : MonoBehaviour
 
     private Vector3 originalPos = new Vector3(0, 1.5f, 0);
 
+    private bool TriggerOnce;
+
     private void Awake()
     {
         cameraZoom = GetComponent<CameraZoom>();
@@ -38,6 +41,54 @@ public class PlayerInteract : MonoBehaviour
 
         PlayerNPCInteraction();
         ItemInteraction();
+    }
+
+    private void OnAnimatorIK()
+    {
+        float interactRange = 2.2f;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        float closestDistance = float.MaxValue;
+        if (!playerMovement.onInventory)
+        {
+            foreach (Collider collider in colliderArray)
+            {
+                if (collider.gameObject.transform.Find("LookAtPoint"))
+                {
+                    Transform lookPointTransform = collider.gameObject.transform.Find("LookAtPoint");
+                    Vector3 lookAtPointPos = lookPointTransform.position;
+                    float distance = Vector3.Distance(transform.position, collider.transform.position);
+
+                    // Check if the collider is within the cone of detection
+                    Vector3 directionToCollider = (collider.transform.position - transform.position).normalized;
+                    Vector3 raycastOrigin = transform.position + Vector3.up * 1.5f;
+                    float angle = Vector3.Angle(transform.forward, directionToCollider);
+
+                    if (angle <= 60f)
+                    {
+                        // Perform a raycast to ensure line of sight
+                        RaycastHit hit;
+                        if (Physics.Raycast(raycastOrigin, directionToCollider, out hit, interactRange))
+                        {
+                            if (hit.collider == collider)
+                            {
+                                // Collider is within the cone and there is line of sight
+                                if (distance < closestDistance)
+                                {
+                                    closestDistance = distance;
+                                    playerMovement.animator.SetLookAtWeight(2f);
+                                    playerMovement.animator.SetLookAtPosition(lookAtPointPos);
+                                    print("found it!");
+                                }
+                                else
+                                {
+                                    playerMovement.animator.SetLookAtWeight(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void ItemInteraction()
@@ -116,6 +167,7 @@ public class PlayerInteract : MonoBehaviour
                         {
                             playerMovement.isInteracting = true;
                             cameraZoom.currentTargetDistance = 2.5f;
+                            TriggerOnce = true;
 
                             Vector3 direction = closestNPC.transform.position - transform.position;
                             direction.y = 0;
@@ -125,7 +177,7 @@ public class PlayerInteract : MonoBehaviour
                         else if (!closestNPC.isInteracting)
                         {
                             playerMovement.isInteracting = false;
-                            cameraZoom.currentTargetDistance = 5.5f;
+                            ResetAngle();
                         }
                     }
                 }
@@ -147,6 +199,15 @@ public class PlayerInteract : MonoBehaviour
         if (closestNPC == null)
         {
             npcPanel.gameObject.SetActive(false);
+        }
+    }
+
+    private void ResetAngle()
+    {
+        if (TriggerOnce)
+        {
+            TriggerOnce = false;
+            cameraZoom.currentTargetDistance = 6.0f;
         }
     }
 }
