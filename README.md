@@ -25,5 +25,6 @@
 > What's New?: "JoySticks!"
 
 - Re-Creating genshin/star rail's joystick
+- The player run if the joystick is on a specific distance.
 
 [NOTE!] There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project, this is also for myself to prepare for the re-designing and coding of most of the stuffs as we officialy start this "IT Special Project"
