@@ -20,12 +20,10 @@
 - Minimap Script (This script is already done, i haven't re-implemented it yet).
 - Enemy Attack & Player Detection Script.
 
-<h1>Current Changes: [February 15, 2024]</h1>
+<h1>Current Changes: [February 16, 2024]</h1>
 
-> What's New?: "Head Turning"
+> What's New?: "JoySticks!"
 
-- The Character will turn its head on a limited angle, if there is a nearby npc.
-- The Enemies will not be having any of the game object used for the head turning.
-- The npcs will also have this script, still under development.
+- Re-Creating genshin/star rail's joystick
 
 [NOTE!] There will be small changes or possible, no changes in the next few weeks as we prepare to create the concept for this project, this is also for myself to prepare for the re-designing and coding of most of the stuffs as we officialy start this "IT Special Project"
