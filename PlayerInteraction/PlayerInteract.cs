@@ -77,7 +77,6 @@ public class PlayerInteract : MonoBehaviour
                                     closestDistance = distance;
                                     playerMovement.animator.SetLookAtWeight(2f);
                                     playerMovement.animator.SetLookAtPosition(lookAtPointPos);
-                                    print("found it!");
                                 }
                                 else
                                 {

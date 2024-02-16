@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementChange : MonoBehaviour
 {
     Movement playerMovement;
-
+    [SerializeField] private FixedJoystick joystick;
     // Dash Movement
     [SerializeField] private float dashDistance = 1.2f;
     [SerializeField] private float dashDuration = 0.2f;
@@ -96,6 +96,7 @@ public class MovementChange : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl) && !playerMovement.isJumping)
         {
+            print("e");
             if (playerMovement.isRunning)
             {
                 playerMovement.isRunning = false;
@@ -105,6 +106,22 @@ public class MovementChange : MonoBehaviour
             {
                 playerMovement.isRunning = true;
                 playerMovement.isWalking = false;
+            }
+        }
+
+        if (joystick.usingJoystick)
+        {
+            if (joystick.DistanceFromCenter < 35f)
+            {
+                // Player is walking
+                playerMovement.isWalking = true;
+                playerMovement.isRunning = false;
+            }
+            else if (joystick.DistanceFromCenter > 35f)
+            {
+                // Player is running
+                playerMovement.isWalking = false;
+                playerMovement.isRunning = true;
             }
         }
     }

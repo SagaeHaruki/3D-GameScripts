@@ -19,6 +19,8 @@ using UnityEngine;
 #endregion
 public class Movement : MonoBehaviour
 {
+    [SerializeField] public FixedJoystick jy_;
+
     #region Camera Fields
     [SerializeField] public CinemachineVirtualCamera VirtualCamera;
     [SerializeField] public Transform MainCamera;
@@ -124,8 +126,8 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        float horizontal = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : 0f;
-        float vertical = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : 0f;
+        float horizontal = Input.GetKey(KeyCode.A) ? -1f : Input.GetKey(KeyCode.D) ? 1f : jy_.Horizontal;
+        float vertical = Input.GetKey(KeyCode.W) ? 1f : Input.GetKey(KeyCode.S) ? -1f : jy_.Vertical;
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
