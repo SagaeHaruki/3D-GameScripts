@@ -9,7 +9,7 @@
 - Every 2 months, This repository will have a code cleanup.
 
 <h1>Future plans:</h1>
-
+ 
 - Attacking Script. [DONE]
 - NPC Interaction Script. [Under Development]
 - Inventory System Script. [Under Development]
